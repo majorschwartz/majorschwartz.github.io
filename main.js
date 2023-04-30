@@ -12,15 +12,15 @@ function hello_sequence() {
     setTimeout(function () {
         progressBar = document.querySelector(".progress-bar .bar");
         progressText = document.querySelector(".progress-bar .bar .text");
-        for(let i = 0; i <= 100; i++) {
-            if (i == 5) {
+        for(let i = 0; i <= 100; i += 1) {
+            if (i > 5) {
                 progressText.style.visibility = "visible";
                 progressText.style.opacity = "100%";
             }
             setTimeout(function () {
                 progressBar.style.width = `${i}%`;
                 progressText.innerText = `${i}%`;
-            }, i * 7.5);
+            }, i * 10);
         }
         setTimeout(function () {
             progressText.style.transition = "opacity 0.2s, transform 0.3s";
