@@ -91,6 +91,8 @@ main {
     box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2), 0 0px 20px 0 rgba(0,0,0,0.19) !important;
     /* transform: translateY(100vh); */
     /* background-image: url("/files/white-texture.png"); */
+    /* animation: flip-with-rotate 2s infinite; */
+    
 }
 
 .card-wrapper {
@@ -99,13 +101,34 @@ main {
     width: 100%;
 }
 
-.card-wrapper h2 {
+.card-wrapper .middle-text {
     position: absolute;
-    top: 50%; right: 50%;
-    transform: translate(50%,-50%);
+    top: 40%; left: 50%;
+    transform: translate(-50%, -40%);
+    text-align: center;
+}
+
+.middle-text h2 {
+    /* background-color: #242424; */
+    margin: 0px 0px 5px 0px;
+    font-size: 5vw;
+}
+
+.middle-text h4 {
     margin: 0;
-    color: black;
-    font-size: 4vw;
-    filter: url("/files/white-texture.png");
-    opacity: 100%;
+    font-size: 2.8vw;
+}
+
+@keyframes flip-with-rotate {
+    0% {
+        transform: perspective(400px) rotateY(0) rotateX(0);
+    }
+
+    50% {
+
+    }
+
+    100% {
+        transform: perspective(400px) rotateY(0) rotateX(-180deg);
+    }
 }
