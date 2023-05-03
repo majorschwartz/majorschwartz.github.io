@@ -2,6 +2,9 @@
     --primary-color: #f5f5f5;
     --secondary-color: #242424;
     --main-font: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    --card-header-fsize: 9vw;
+    --intro-menu-fsize: 4vw;
 }
 
 html,
@@ -15,6 +18,12 @@ body {
     position: absolute;
     height: 100vh;
     width: 100vw;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 .hello-intro {
@@ -90,9 +99,80 @@ main {
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: cover;
-    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2), 0 0px 20px 0 rgba(0,0,0,0.19) !important;
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2),
+        0 0px 20px 0 rgba(0, 0, 0, 0.19) !important;
     /* transform: translateY(100vh); */
     /* background-image: url("/files/white-texture.png"); */
     /* animation: flip-with-rotate 2s infinite; */
-    
 }
+
+.intro-header,
+.about-header,
+.exp-header,
+.contact-header {
+    font-family: "EB Garamond";
+    font-weight: 400;
+    font-size: var(--card-header-fsize);
+    margin: 0;
+    padding: 0;
+}
+
+.intro-header,
+.contact-header {
+    text-align: center;
+}
+
+.exp-header {
+    text-align: right;
+}
+
+.intro-card {
+    position: relative;
+}
+
+.intro-card .intro-header-section {
+    position: absolute;
+    width: 80%;
+    top: 40%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
+.intro-card .intro-header-section .intro-header {
+    font-size: var(--card-header-fsize);
+}
+
+.intro-card .menu-section {
+    font-size: 4vw;
+    position: absolute;
+    width: 60%;
+    bottom: 8%;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.intro-card .menu-section .menu-list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: end;
+    list-style-type: none;
+    font-family: "EB Garamond";
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+}
+
+.intro-card .menu-section .menu-list .menu-item {
+    position: relative;
+}
+
+.intro-card .menu-section .menu-list .menu-item:hover::after {
+    content: " ";
+    position: absolute;
+    bottom: -3px;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+}
+
