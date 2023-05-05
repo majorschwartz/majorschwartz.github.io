@@ -222,10 +222,10 @@ main {
 
 .about-card .stuff-link {
     position: absolute;
-    font-size: 4.5vw;
+    font-size: 4vw;
     font-family: var(--main-font);
     bottom: 30%;
-    right: 30%;
+    right: 6%;
 }
 
 /* EXPERIENCE CARD */
@@ -367,6 +367,60 @@ main {
 }
 
 /* CONTACT CARD */
+
+.contact-card .contact-card-content {
+    height: 100%;
+}
+
+.contact-card .contact-card-content .contact-header-section {
+    position: absolute;
+    width: 100%;
+    top: 6%;
+}
+
+.contact-text-section {
+    position: absolute;
+    width: 100%;
+    top: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-text-section .contact-text {
+    font-family: var(--main-font);
+    font-size: 3.3vw;
+    font-weight: 0;
+    text-align: center;
+    width: 80%;
+}
+
+.contact-email-section {
+    position: absolute;
+    width: 100%;
+    top: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-email-section .contact-text {
+    font-family: var(--main-font);
+    font-size: 5vw;
+    height: min-content;
+}
+
+.contact-email-section .contact-text .copy-email {
+    margin-right: 0.3vw;
+}
+
+.contact-email-section .contact-text .copy-email img {
+    vertical-align: middle;
+    display: inline;
+    height: 3.5vw;
+}
+
+
 
 /* .return {
     position: absolute;
