@@ -307,15 +307,15 @@ main {
     font-style: italic;
 }
 
-.exp-items .exp-item::before {
+.exp-items .exp-item::before, .exp-items .cta::before {
     content: " ";
     position: absolute;
     width: 0; 
     height: 0; 
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 8px solid black;
-    
+    border-top: 1.2vw solid transparent;
+    border-bottom: 1.2vw solid transparent;
+    border-left: 1.2vw solid black;
+    transform: translate(-250%, 25%);
 }
 
 .exp-items .exp-item .item-date {
@@ -326,6 +326,46 @@ main {
     font-weight: bold;
     margin-top: 7.5vw;
 }
+
+.exp-image-content {
+    position: absolute;
+    width: 40%;
+    height: 60%;
+    right: 5%;
+    bottom: 7.5%;
+}
+
+.exp-image {
+    box-shadow: 0px 0px 1vw rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 8vw;
+}
+
+#exp-research-paper {
+    z-index: 3;
+    width: 20vw;
+    rotate: 6deg;
+    right: 0;
+}
+
+#exp-calendar {
+    z-index: 2;
+    width: 24vw;
+    rotate: 2deg;
+    left: 10%;
+    bottom: 5%;
+}
+
+#exp-webpage {
+    z-index: 1;
+    width: 26vw;
+    rotate: -8deg;
+    top: 18%;
+}
+
+/* CONTACT CARD */
+
+
 
 
 
