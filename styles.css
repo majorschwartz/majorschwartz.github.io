@@ -182,7 +182,6 @@ main {
     left: 0;
     width: 31vw;
     z-index: 1;
-
 }
 
 .about-card .about-header-section {
@@ -262,7 +261,8 @@ main {
     /* background-color: antiquewhite; */
 }
 
-.time-labels, .exp-items {
+.time-labels,
+.exp-items {
     font-family: var(--main-font);
     display: flex;
     flex-direction: column;
@@ -276,7 +276,8 @@ main {
     top: 12%;
 }
 
-.time-labels .year, .time-labels .month {
+.time-labels .year,
+.time-labels .month {
     height: 7.5vw;
 }
 
@@ -298,7 +299,8 @@ main {
     height: 7.5vw;
 }
 
-.exp-items .exp-item .item-main, .exp-items .cta {
+.exp-items .exp-item .item-main,
+.exp-items .cta {
     font-size: 2.5vw;
 }
 
@@ -307,11 +309,12 @@ main {
     font-style: italic;
 }
 
-.exp-items .exp-item::before, .exp-items .cta::before {
+.exp-items .exp-item::before,
+.exp-items .cta::before {
     content: " ";
     position: absolute;
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-top: 1.2vw solid transparent;
     border-bottom: 1.2vw solid transparent;
     border-left: 1.2vw solid black;
@@ -364,10 +367,6 @@ main {
 }
 
 /* CONTACT CARD */
-
-
-
-
 
 /* .return {
     position: absolute;
