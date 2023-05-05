@@ -93,7 +93,6 @@ main {
 
 .card {
     position: relative;
-    background-color: #edf3ff;
     /* position: absolute; */
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -104,7 +103,6 @@ main {
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2),
         0 0px 20px 0 rgba(0, 0, 0, 0.19) !important;
     /* transform: translateY(100vh); */
-    /* background-image: url("/files/white-texture.png"); */
     /* animation: flip-with-rotate 2s infinite; */
 }
 
@@ -233,14 +231,109 @@ main {
 
 /* EXPERIENCE CARD */
 
+.exp-card .exp-card-content {
+    height: 100%;
+}
+
+.exp-card .exp-header-section {
+    position: absolute;
+    width: 40%;
+    top: 6%;
+    right: 6%;
+}
+
+.exp-card .timeline-section .timeline-bar {
+    position: absolute;
+    z-index: 1;
+    width: 1.2vw;
+    height: 85%;
+    top: 7.5%;
+    left: 12vw;
+    background-color: black;
+    border-radius: 100vw;
+}
+
+.exp-timeline-wrapper {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: antiquewhite; */
+}
+
+.time-labels, .exp-items {
+    font-family: var(--main-font);
+    display: flex;
+    flex-direction: column;
+}
+
+.time-labels {
+    position: absolute;
+    font-weight: bold;
+    text-align: right;
+    left: 5%;
+    top: 12%;
+}
+
+.time-labels .year, .time-labels .month {
+    height: 7.5vw;
+}
+
+.time-labels .year {
+    font-size: 3.8vw;
+}
+
+.time-labels .month {
+    font-size: 2.5vw;
+}
+
+.exp-items {
+    position: absolute;
+    left: 32%;
+    top: calc(7.5vw + 12%);
+}
+
+.exp-items .exp-item {
+    height: 7.5vw;
+}
+
+.exp-items .exp-item .item-main, .exp-items .cta {
+    font-size: 2.5vw;
+}
+
+.exp-items .exp-item .item-main .title {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.exp-items .exp-item::before {
+    content: " ";
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid black;
+    
+}
+
+.exp-items .exp-item .item-date {
+    font-size: 1.8vw;
+}
+
+.exp-items .cta {
+    font-weight: bold;
+    margin-top: 7.5vw;
+}
 
 
 
-.return {
+/* .return {
     position: absolute;
     right: 10px;
     bottom: 10px;
     width: 6vw;
     height: 6vw;
     background-color: black;
-}
+} */
