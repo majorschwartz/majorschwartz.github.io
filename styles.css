@@ -1,6 +1,7 @@
 :root {
     --primary-color: #f5f5f5;
     --secondary-color: #242424;
+    --test-bg-color: rgba(255, 153, 0, 0.1);
     --loading-font: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --main-font: "EB Garamond";
 
@@ -91,11 +92,14 @@ main {
     height: 100vh;
 }
 
+/* CARD STYLING */
+
 .card {
     position: relative;
     /* position: absolute; */
     width: 100%;
     aspect-ratio: 16 / 9;
+    overflow: hidden;
     background-image: url("/files/white-texture.png");
     background-repeat: no-repeat;
     background-position: 50% 0;
@@ -108,6 +112,7 @@ main {
 
 .intro-header,
 .about-header,
+.like-header,
 .exp-header,
 .contact-header {
     font-family: var(--main-font);
@@ -204,7 +209,7 @@ main {
 
 .about-card .about-text-section .uni-name,
 .about-card .about-text-section .uni-context,
-.about-card .about-text-section .stuff-link {
+.about-card .about-text-section .like-link {
     text-align: right;
     margin: 0;
     padding: 0;
@@ -220,7 +225,7 @@ main {
     font-style: italic;
 }
 
-.about-card .stuff-link {
+.about-card .like-link {
     position: absolute;
     font-size: 4vw;
     font-family: var(--main-font);
@@ -228,9 +233,125 @@ main {
     right: 6%;
 }
 
-/* STUFF CARD */
+/* LIKE CARD */
 
+.like-card .like-card-content {
+    height: 100%;
+}
 
+.like-card .like-header-section {
+    position: absolute;
+    width: 40%;
+    top: 6%;
+    right: 6%;
+}
+
+.like-card .like-header-section .like-header {
+    font-weight: 200;
+}
+
+.quote-header, .book-header, .channel-header {
+    font-family: var(--main-font);
+    font-weight: 200;
+    font-size: 4vw;
+    margin: 0;
+    padding: 0;
+}
+
+.like-card .like-quote-section {
+    position: absolute;
+    width: 45%;
+    height: 45%;
+    top: 8%;
+    left: 4%;
+}
+
+.like-quote-section .quote-header {
+    height: 28%;
+}
+
+.like-quote-section .quote-text {
+    height: 72%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.like-quote-section .quote-item {
+    text-align: center;
+    font-family: var(--main-font);
+}
+
+.like-quote-section .quote-item .quote {
+    font-style: italic;
+    font-size: 2.11vw;
+}
+
+.like-quote-section .quote-item .quote-attribution {
+    font-size: 1.5vw;
+}
+
+.like-book-section {
+    position: absolute;
+    width: 48%;
+    height: 35%;
+    top: 58%;
+    left: 4%;
+}
+
+.like-book-section .book-header {
+    height: 35%;
+}
+
+.like-book-section .book-row {
+    height: 65%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.like-book-section .book-row .book {
+    box-shadow: 0px 0px 1vw rgba(0, 0, 0, 0.5);
+}
+
+.like-channel-section {
+    position: absolute;
+    width: 30%;
+    height: 60%;
+    bottom: 8%;
+    right: 7%;
+    text-align: right;
+}
+
+.like-channel-section .channel-header {
+    height: 25%;
+}
+
+.channels {
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.channels .channel-item {
+    font-family: var(--main-font);
+    font-size: 200;
+    font-size: 2.11vw;
+    width: fit-content;
+    margin-left: auto;
+}
+
+.channels .channel-item .channel-icon-wrap {
+    margin-left: 0.5vw;
+}
+
+.channels .channel-item .channel-icon-wrap .channel-icon {
+    vertical-align: text-bottom;
+    display: inline;
+    height: 3vw;
+    border-radius: 100vw;
+    box-shadow: 0px 0px 1vw rgba(0, 0, 0, 0.5);
+}
 
 /* EXPERIENCE CARD */
 
