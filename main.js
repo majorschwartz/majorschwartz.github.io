@@ -26,9 +26,10 @@ function hello_sequence() {
         progressBar.classList.add("pb-active");
 
         for(let i = 0; i <= 100; i += 1) {
-            if (i > 5) {
-                progressText.style.visibility = "visible";
-                progressText.style.opacity = "100%";
+            if (!progressText.classList.contains("shown")) {
+                if (i > 5) {
+                    progressText.classList.add("shown");
+                }
             }
             setTimeout(function () {
                 progressText.innerText = `${i}%`;
@@ -40,7 +41,7 @@ function hello_sequence() {
             progressText.style.transform = "translateY(0px)";
         }, 1400);
         setTimeout(function () {
-            progressText.style.visibility = "hidden";
+            progressText.classList.remove("shown");
         }, 1600);
     }, 1300);
 }

@@ -119,8 +119,13 @@ body::-webkit-scrollbar {
     transform: translateY(2vw);
     color: var(--secondary-color);
     font-size: 1.5vw;
-    font-family: var(--main-font);
+    font-family: var(--loading-font);
     font-weight: bold;
+}
+
+.progress-bar .bar .text.shown {
+    visibility: visible;
+    opacity: 100%;
 }
 
 main {
@@ -130,6 +135,7 @@ main {
     flex-wrap: nowrap;
     gap: 20px;
     width: 100%;
+    visibility: hidden;
     /* height: 100vh; */
 }
 
@@ -320,7 +326,9 @@ main {
     font-weight: 200;
 }
 
-.quote-header, .book-header, .channel-header {
+.quote-header,
+.book-header,
+.channel-header {
     font-family: var(--main-font);
     font-weight: 200;
     font-size: var(--intro-menu-fsize);
