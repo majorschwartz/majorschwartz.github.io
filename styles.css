@@ -11,38 +11,39 @@
     /* ADDITIONAL GLOBAL STYLING */
     --underline-height: 0.5vw;
     --box-shadow-bloom: 1vw;
+    --card-main: 50vw;
 
     /* FRAME WIDTH AND HEIGHT */
     --full-frame-width: 100vw;
     --full-frame-height: 100vh;
 
     /* INTRO CARD - CONTROL VARIABLES */
-    --card-header-fsize: 9vw;
-    --intro-menu-fsize: 4vw;
+    --card-header-fsize: calc(var(--card-main) * 0.09);
+    --intro-menu-fsize: calc(var(--card-main) * 0.04);
 
     /* ABOUT CARD - CONTROL VARIABLES */
-    --about-uni-name-fsize: 3.2vw;
-    --about-uni-context-fsize: 3vw;
+    --about-uni-name-fsize: calc(var(--card-main) * 0.032);
+    --about-uni-context-fsize: calc(var(--card-main) * 0.03);
 
     /* LIKE CARD - CONTROL VARIABLES */
-    --like-quote-channel-fsize: 2.11vw;
-    --like-quote-attribution-fsize: 1.5vw;
-    --like-channel-icon-spacing: 1vw;
-    --like-channel-icon-dimension: 3vw;
+    --like-quote-channel-fsize: calc(var(--card-main) * 0.0211);
+    --like-quote-attribution-fsize: calc(var(--card-main) * 0.015);
+    --like-channel-icon-spacing: calc(var(--card-main) * 0.01);
+    --like-channel-icon-dimension: calc(var(--card-main) * 0.03);
 
     /* EXP CARD - CONTROL VARIABLES */
-    --exp-timeline-item-height: 7.5vw;
-    --exp-timeline-primary-fsize: 3.8vw;
-    --exp-timeline-secondary-fsize: 2.5vw;
-    --exp-timeline-triangle-dimension: 1.2vw;
-    --exp-timeline-sub-fsize: 1.8vw;
-    --exp-contact-link-margin: 2vw;
+    --exp-timeline-item-height: calc(var(--card-main) * 0.075);
+    --exp-timeline-primary-fsize: calc(var(--card-main) * 0.038);
+    --exp-timeline-secondary-fsize: calc(var(--card-main) * 0.025);
+    --exp-timeline-triangle-dimension: calc(var(--card-main) * 0.012);
+    --exp-timeline-sub-fsize: calc(var(--card-main) * 0.018);
+    --exp-contact-link-margin: calc(var(--card-main) * 0.02);
 
     /* CONTACT CARD - CONTROL VARIABLES */
-    --contact-text-fsize: 3.3vw;
-    --contact-email-fsize: 5vw;
-    --contact-email-margin: 0.3vw;
-    --contact-email-copy-height: 3.5vw;
+    --contact-text-fsize: calc(var(--card-main) * 0.033);
+    --contact-email-fsize: calc(var(--card-main) * 0.05);
+    --contact-email-margin: calc(var(--card-main) * 0.003);
+    --contact-email-copy-height: calc(var(--card-main) * 0.035);
 }
 
 /* STANDARD BODY POSITIONING */
@@ -125,11 +126,11 @@ body::-webkit-scrollbar {
 main {
     position: relative;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5rem;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 /* CARD STYLING */
@@ -137,8 +138,8 @@ main {
 .card {
     position: relative;
     /* position: absolute; */
-    width: 100%;
-    aspect-ratio: 16 / 9;
+    width: var(--card-main);
+    height: calc(var(--card-main) * 0.5625);
     overflow: hidden;
     background-image: url("files/white-texture.png");
     background-repeat: no-repeat;
@@ -515,7 +516,7 @@ main {
     border-top: var(--exp-timeline-triangle-dimension) solid transparent;
     border-bottom: var(--exp-timeline-triangle-dimension) solid transparent;
     border-left: var(--exp-timeline-triangle-dimension) solid black;
-    transform: translate(-250%, 25%);
+    transform: translate(-270%, 25%);
 }
 
 .exp-items .exp-item .item-date {
