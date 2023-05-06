@@ -100,7 +100,7 @@ main {
     width: 100%;
     aspect-ratio: 16 / 9;
     overflow: hidden;
-    background-image: url("/files/white-texture.png");
+    background-image: url("files/white-texture.png");
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: cover;
