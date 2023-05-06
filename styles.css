@@ -1,13 +1,51 @@
 :root {
+    /* MAIN COLORS */
     --primary-color: #f5f5f5;
     --secondary-color: #242424;
     --test-bg-color: rgba(255, 153, 0, 0.1);
+
+    /* MAIN FONTS */
     --loading-font: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --main-font: "EB Garamond";
 
+    /* ADDITIONAL GLOBAL STYLING */
+    --underline-height: 0.5vw;
+    --box-shadow-bloom: 1vw;
+
+    /* FRAME WIDTH AND HEIGHT */
+    --full-frame-width: 100vw;
+    --full-frame-height: 100vh;
+
+    /* INTRO CARD - CONTROL VARIABLES */
     --card-header-fsize: 9vw;
     --intro-menu-fsize: 4vw;
+
+    /* ABOUT CARD - CONTROL VARIABLES */
+    --about-uni-name-fsize: 3.2vw;
+    --about-uni-context-fsize: 3vw;
+
+    /* LIKE CARD - CONTROL VARIABLES */
+    --like-quote-channel-fsize: 2.11vw;
+    --like-quote-attribution-fsize: 1.5vw;
+    --like-channel-icon-spacing: 1vw;
+    --like-channel-icon-dimension: 3vw;
+
+    /* EXP CARD - CONTROL VARIABLES */
+    --exp-timeline-item-height: 7.5vw;
+    --exp-timeline-primary-fsize: 3.8vw;
+    --exp-timeline-secondary-fsize: 2.5vw;
+    --exp-timeline-triangle-dimension: 1.2vw;
+    --exp-timeline-sub-fsize: 1.8vw;
+    --exp-contact-link-margin: 2vw;
+
+    /* CONTACT CARD - CONTROL VARIABLES */
+    --contact-text-fsize: 3.3vw;
+    --contact-email-fsize: 5vw;
+    --contact-email-margin: 0.3vw;
+    --contact-email-copy-height: 3.5vw;
 }
+
+/* STANDARD BODY POSITIONING */
 
 html,
 body {
@@ -18,8 +56,8 @@ body {
 
 body {
     position: absolute;
-    height: 100vh;
-    width: 100vw;
+    height: var(--full-frame-height);
+    width: var(--full-frame-width);
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -27,6 +65,8 @@ body {
 body::-webkit-scrollbar {
     display: none;
 }
+
+/* HELLO INTRO */
 
 .hello-intro {
     position: absolute;
@@ -131,6 +171,17 @@ main {
     text-align: right;
 }
 
+.about-card .about-portrait,
+.like-book-section .book-row .book,
+.exp-image,
+.channels .channel-item .channel-icon-wrap .channel-icon {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
 /* INTRO CARD */
 
 .intro-card .intro-header-section {
@@ -146,7 +197,7 @@ main {
 }
 
 .intro-card .menu-section {
-    font-size: 4vw;
+    font-size: var(--intro-menu-fsize);
     position: absolute;
     width: 60%;
     bottom: 8%;
@@ -169,14 +220,32 @@ main {
     position: relative;
 }
 
-.intro-card .menu-section .menu-list .menu-item:hover::after {
+.intro-card .menu-section .menu-list .menu-item:hover,
+.about-card .like-link:hover,
+.exp-items .cta .contact-link-text:hover {
+    cursor: pointer;
+}
+
+.intro-card .menu-section .menu-list .menu-item::after,
+.about-card .like-link::after,
+.exp-items .cta .contact-link-text::after {
     content: " ";
     position: absolute;
     bottom: -3px;
     left: 0px;
     width: 100%;
-    height: 0.5vw;
+    height: var(--underline-height);
     background-color: black;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.15s ease-out;
+}
+
+.intro-card .menu-section .menu-list .menu-item:hover::after,
+.about-card .like-link:hover::after,
+.exp-items .cta .contact-link-text:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 /* ABOUT ME CARD */
@@ -185,7 +254,7 @@ main {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 31vw;
+    width: 31%;
     z-index: 1;
 }
 
@@ -217,17 +286,17 @@ main {
 
 .about-card .about-text-section .uni-name {
     flex-grow: 0.2;
-    font-size: 3.2vw;
+    font-size: var(--about-uni-name-fsize);
 }
 
 .about-card .about-text-section .uni-context {
-    font-size: 3vw;
+    font-size: var(--about-uni-context-fsize);
     font-style: italic;
 }
 
 .about-card .like-link {
     position: absolute;
-    font-size: 4vw;
+    font-size: var(--intro-menu-fsize);
     font-family: var(--main-font);
     bottom: 30%;
     right: 6%;
@@ -253,7 +322,7 @@ main {
 .quote-header, .book-header, .channel-header {
     font-family: var(--main-font);
     font-weight: 200;
-    font-size: 4vw;
+    font-size: var(--intro-menu-fsize);
     margin: 0;
     padding: 0;
 }
@@ -284,11 +353,11 @@ main {
 
 .like-quote-section .quote-item .quote {
     font-style: italic;
-    font-size: 2.11vw;
+    font-size: var(--like-quote-channel-fsize);
 }
 
 .like-quote-section .quote-item .quote-attribution {
-    font-size: 1.5vw;
+    font-size: var(--like-quote-attribution-fsize);
 }
 
 .like-book-section {
@@ -310,7 +379,7 @@ main {
 }
 
 .like-book-section .book-row .book {
-    box-shadow: 0px 0px 1vw rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px var(--box-shadow-bloom) rgba(0, 0, 0, 0.5);
 }
 
 .like-channel-section {
@@ -335,22 +404,26 @@ main {
 
 .channels .channel-item {
     font-family: var(--main-font);
-    font-size: 200;
-    font-size: 2.11vw;
+    font-size: var(--like-quote-channel-fsize);
     width: fit-content;
     margin-left: auto;
 }
 
+.channels .channel-item .channel-name {
+    vertical-align: middle;
+}
+
 .channels .channel-item .channel-icon-wrap {
-    margin-left: 0.5vw;
+    margin-left: var(--like-channel-icon-spacing);
 }
 
 .channels .channel-item .channel-icon-wrap .channel-icon {
-    vertical-align: text-bottom;
+    vertical-align: middle;
     display: inline;
-    height: 3vw;
-    border-radius: 100vw;
-    box-shadow: 0px 0px 1vw rgba(0, 0, 0, 0.5);
+    height: var(--like-channel-icon-dimension);
+    width: var(--like-channel-icon-dimension);
+    border-radius: var(--full-frame-width);
+    box-shadow: 0px 0px var(--box-shadow-bloom) rgba(0, 0, 0, 0.5);
 }
 
 /* EXPERIENCE CARD */
@@ -369,12 +442,12 @@ main {
 .exp-card .timeline-section .timeline-bar {
     position: absolute;
     z-index: 1;
-    width: 1.2vw;
+    width: 1.2%;
     height: 85%;
     top: 7.5%;
-    left: 12vw;
+    left: 12%;
     background-color: black;
-    border-radius: 100vw;
+    border-radius: var(--full-frame-width);
 }
 
 .exp-timeline-wrapper {
@@ -383,7 +456,6 @@ main {
     height: 100%;
     display: flex;
     justify-content: space-between;
-    /* background-color: antiquewhite; */
 }
 
 .time-labels,
@@ -403,30 +475,30 @@ main {
 
 .time-labels .year,
 .time-labels .month {
-    height: 7.5vw;
+    height: var(--exp-timeline-item-height);
 }
 
 .time-labels .year {
-    font-size: 3.8vw;
+    font-size: var(--exp-timeline-primary-fsize);
 }
 
 .time-labels .month {
-    font-size: 2.5vw;
+    font-size: var(--exp-timeline-secondary-fsize);
 }
 
 .exp-items {
     position: absolute;
     left: 32%;
-    top: calc(7.5vw + 12%);
+    top: 25%;
 }
 
 .exp-items .exp-item {
-    height: 7.5vw;
+    height: var(--exp-timeline-item-height);
 }
 
 .exp-items .exp-item .item-main,
 .exp-items .cta {
-    font-size: 2.5vw;
+    font-size: var(--exp-timeline-secondary-fsize);
 }
 
 .exp-items .exp-item .item-main .title {
@@ -440,19 +512,26 @@ main {
     position: absolute;
     width: 0;
     height: 0;
-    border-top: 1.2vw solid transparent;
-    border-bottom: 1.2vw solid transparent;
-    border-left: 1.2vw solid black;
+    border-top: var(--exp-timeline-triangle-dimension) solid transparent;
+    border-bottom: var(--exp-timeline-triangle-dimension) solid transparent;
+    border-left: var(--exp-timeline-triangle-dimension) solid black;
     transform: translate(-250%, 25%);
 }
 
 .exp-items .exp-item .item-date {
-    font-size: 1.8vw;
+    font-size: var(--exp-timeline-sub-fsize);
 }
 
 .exp-items .cta {
-    font-weight: bold;
-    margin-top: 7.5vw;
+    font-weight: inherit;
+    margin-top: var(--exp-timeline-item-height);
+}
+
+.exp-items .cta .contact-link-text {
+    position: relative;
+    width: fit-content;
+    margin-left: var(--exp-contact-link-margin);
+    font-weight: 600;
 }
 
 .exp-image-content {
@@ -464,21 +543,20 @@ main {
 }
 
 .exp-image {
-    box-shadow: 0px 0px 1vw rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px var(--box-shadow-bloom) rgba(0, 0, 0, 0.5);
     position: absolute;
-    width: 8vw;
 }
 
 #exp-research-paper {
     z-index: 3;
-    width: 20vw;
+    width: 50%;
     rotate: 6deg;
     right: 0;
 }
 
 #exp-calendar {
     z-index: 2;
-    width: 24vw;
+    width: 60%;
     rotate: 2deg;
     left: 10%;
     bottom: 5%;
@@ -486,7 +564,7 @@ main {
 
 #exp-webpage {
     z-index: 1;
-    width: 26vw;
+    width: 65%;
     rotate: -8deg;
     top: 18%;
 }
@@ -514,7 +592,7 @@ main {
 
 .contact-text-section .contact-text {
     font-family: var(--main-font);
-    font-size: 3.3vw;
+    font-size: var(--contact-text-fsize);
     font-weight: 0;
     text-align: center;
     width: 80%;
@@ -529,29 +607,18 @@ main {
     justify-content: center;
 }
 
-.contact-email-section .contact-text {
+.contact-email-section .contact-email-wrapper {
     font-family: var(--main-font);
-    font-size: 5vw;
+    font-size: var(--contact-email-fsize);
     height: min-content;
 }
 
-.contact-email-section .contact-text .copy-email {
-    margin-right: 0.3vw;
+.contact-email-section .contact-email-wrapper .copy-email {
+    margin-right: var(--contact-email-margin);
 }
 
-.contact-email-section .contact-text .copy-email img {
+.contact-email-section .contact-email-wrapper .copy-email img {
     vertical-align: middle;
     display: inline;
-    height: 3.5vw;
+    height: var(--contact-email-copy-height);
 }
-
-
-
-/* .return {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    width: 6vw;
-    height: 6vw;
-    background-color: black;
-} */
