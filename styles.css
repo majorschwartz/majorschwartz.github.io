@@ -53,6 +53,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--primary-color);
+    cursor: default;
 }
 
 body {
@@ -133,21 +134,23 @@ body::-webkit-scrollbar {
 }
 
 .progress-bar .bar .text {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0s;
     position: absolute;
     right: 0;
-    transform: translateY(min(1.5vw, 16px));
-    color: var(--secondary-color);
-    font-size: min(2vw, 16px);
+    
     font-family: var(--loading-font);
     font-weight: bold;
+    font-size: min(2vw, 16px);
+    color: var(--secondary-color);
+
+    transform: translateY(min(1.5vw, 16px));
+    transition: opacity 0.2s, transform 0.3s;
+    visibility: hidden;
+    opacity: 0;
 }
 
-.progress-bar .bar .text.shown {
-    visibility: visible;
-    opacity: 100%;
+.shown {
+    visibility: visible !important;
+    opacity: 100% !important;
 }
 
 main {
@@ -161,9 +164,9 @@ main {
     gap: 20px;
 
     width: 100vw;
-    height: 100vh;
+    /* height: 100%; */
 
-    visibility: hidden;
+    visibility: visible;
 }
 
 /* CARD STYLING */
@@ -174,7 +177,7 @@ main {
     width: var(--card-main);
     height: calc(var(--card-main) * 0.5625);
     overflow: hidden;
-    background-image: url("files/white-texture.png");
+    background-image: url("files/white-texture.jpeg");
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: cover;
@@ -182,6 +185,11 @@ main {
         0 0px 20px 0 rgba(0, 0, 0, 0.19) !important;
     /* transform: translateY(100vh); */
     /* animation: flip-with-rotate 2s infinite; */
+}
+
+.hidden-card {
+    visibility: hidden !important;
+    display: none !important;
 }
 
 .intro-header,

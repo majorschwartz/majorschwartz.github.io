@@ -38,277 +38,279 @@
         </div>
 
         <main>
-            <div class="card intro-card">
-                <div class="intro-card-content">
-                    <div class="intro-header-section">
-                        <h2 class="intro-header">Major Schwartz</h2>
-                    </div>
-                    <div class="menu-section">
-                        <ul class="menu-list">
-                            <li class="menu-item">About</li>
-                            <li class="menu-dot">•</li>
-                            <li class="menu-item">Experience</li>
-                            <li class="menu-dot">•</li>
-                            <li class="menu-item">Contact</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card about-card">
-                <img
-                    src="files/about-portrait.png"
-                    class="about-portrait"
-                    alt="Major Schwartz Photo"
-                />
-                <div class="about-card-content">
-                    <div class="about-header-section">
-                        <h2 class="about-header">About Me</h2>
-                    </div>
-                    <div class="about-text-section">
-                        <div class="uni-name">
-                            University of Tennessee at Chattanooga
+            <div class="card">
+                <div class="card-item intro-card">
+                    <div class="intro-card-content">
+                        <div class="intro-header-section">
+                            <h2 class="intro-header">Major Schwartz</h2>
                         </div>
-                        <div class="uni-context">Honors College</div>
-                        <div class="uni-context">Dean's Merit Scholar</div>
-                        <div class="uni-context">Data Science 3rd year</div>
-                    </div>
-                    <div class="like-link">Stuff I Like</div>
-                </div>
-            </div>
-
-            <div class="card like-card">
-                <div class="like-card-content">
-                    <div class="like-header-section">
-                        <h2 class="like-header">Stuff I Like</h2>
-                    </div>
-                    <div class="like-quote-section">
-                        <h4 class="quote-header">Quotes</h4>
-                        <div class="quote-text">
-                            <div class="quote-item">
-                                <div class="quote">
-                                    The people who are crazy enough to think
-                                    they can change the world are the ones who
-                                    do.
-                                    <span class="quote-attribution">
-                                        &ndash; Steve Jobs
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="quote-item">
-                                <div class="quote">
-                                    Live life easy; do it the hard way.
-                                    <span class="quote-attribution">
-                                        &ndash; My Grandfather
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="quote-item">
-                                <div class="quote">
-                                    If you tell the truth, you don't have to
-                                    remember anything.
-                                    <span class="quote-attribution">
-                                        &ndash; Mark Twain
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="like-book-section">
-                        <h4 class="book-header">Books</h4>
-                        <div class="book-row">
-                            <img
-                                src="files/books/how-to-win-friends.png"
-                                alt="How To Win Friends and Influence People"
-                                class="book"
-                            />
-                            <img
-                                src="files/books/the-myth-of-sisyphus.png"
-                                alt="The Myth of Sisyphus"
-                                class="book"
-                            />
-                            <img
-                                src="files/books/shoe-dog.png"
-                                alt="Shoe Dog"
-                                class="book"
-                            />
-                            <img
-                                src="files/books/exhalation.png"
-                                alt="Exhalation"
-                                class="book"
-                            />
-                            <img
-                                src="files/books/of-mice-and-men.png"
-                                alt="Of Mice and Men"
-                                class="book"
-                            />
-                        </div>
-                    </div>
-                    <div class="like-channel-section">
-                        <h4 class="channel-header">YouTube</h4>
-                        <div class="channels">
-                            <div class="channel-item">
-                                <span class="channel-name">Veritasium</span>
-                                <span class="channel-icon-wrap">
-                                    <img
-                                        src="files/channels/veritasium-icon.png"
-                                        alt="Icon"
-                                        id="ve-icon"
-                                        class="channel-icon"
-                                    />
-                                </span>
-                            </div>
-                            <div class="channel-item">
-                                <span class="channel-name">
-                                    Two Minute Papers
-                                </span>
-                                <span class="channel-icon-wrap">
-                                    <img
-                                        src="files/channels/two-minute-papers-icon.png"
-                                        alt="Icon"
-                                        id="tmp-icon"
-                                        class="channel-icon"
-                                    />
-                                </span>
-                            </div>
-                            <div class="channel-item">
-                                <span class="channel-name">Tom Scott</span>
-                                <span class="channel-icon-wrap">
-                                    <img
-                                        src="files/channels/tom-scott-icon.png"
-                                        alt="Icon"
-                                        id="ts-icon"
-                                        class="channel-icon"
-                                    />
-                                </span>
-                            </div>
-                            <div class="channel-item">
-                                <span class="channel-name">Melodysheep</span>
-                                <span class="channel-icon-wrap">
-                                    <img
-                                        src="files/channels/melodysheep-icon.png"
-                                        alt="Icon"
-                                        id="ms-icon"
-                                        class="channel-icon"
-                                    />
-                                </span>
-                            </div>
-                            <div class="channel-item">
-                                <span class="channel-name">Vsauce</span>
-                                <span class="channel-icon-wrap">
-                                    <img
-                                        src="files/channels/vsauce-icon.png"
-                                        alt="Icon"
-                                        id="vs-icon"
-                                        class="channel-icon"
-                                    />
-                                </span>
-                            </div>
+                        <div class="menu-section">
+                            <ul class="menu-list">
+                                <li class="menu-item" onclick="change_card('about-card')">About</li>
+                                <li class="menu-dot">•</li>
+                                <li class="menu-item" onclick="change_card('exp-card')">Experience</li>
+                                <li class="menu-dot">•</li>
+                                <li class="menu-item" onclick="change_card('contact-card')">Contact</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card exp-card">
-                <div class="exp-card-content">
-                    <div class="exp-header-section">
-                        <h2 class="exp-header">Experience</h2>
-                    </div>
-                    <div class="timeline-section">
-                        <div class="timeline-bar"></div>
-                    </div>
-                    <div class="exp-timeline-wrapper">
-                        <div class="time-labels">
-                            <div class="year">2022</div>
-                            <div class="month">April</div>
-                            <div class="month">May</div>
-                            <div class="month">June</div>
-                            <div class="year">2023</div>
-                            <div class="month">May</div>
+                <div class="card-item about-card hidden-card">
+                    <img
+                        src="files/about-portrait.png"
+                        class="about-portrait"
+                        alt="Major Schwartz Photo"
+                    />
+                    <div class="about-card-content">
+                        <div class="about-header-section">
+                            <h2 class="about-header">About Me</h2>
                         </div>
-                        <div class="exp-items">
-                            <div class="exp-item">
-                                <div class="item-main">
-                                    <span class="title">Research Assistant</span
-                                    ><span class="location">, UTC</span>
-                                </div>
-                                <div class="item-date">
-                                    April 2022 &ndash; April 2023
-                                </div>
+                        <div class="about-text-section">
+                            <div class="uni-name">
+                                University of Tennessee at Chattanooga
                             </div>
-                            <div class="exp-item">
-                                <div class="item-main">
-                                    <span class="title">Web Editor</span
-                                    ><span class="location">, UTC</span>
-                                </div>
-                                <div class="item-date">
-                                    May 2022 &ndash; Present
-                                </div>
-                            </div>
-                            <div class="exp-item">
-                                <div class="item-main">
-                                    <span class="title">Event Manager</span
-                                    ><span class="location">, UTC</span>
-                                </div>
-                                <div class="item-date">
-                                    June 2022 &ndash; Present
-                                </div>
-                            </div>
-                            <div class="cta">
-                                <div class="text">Put me to work...</div>
-                                <div class="contact-link-text">
-                                    Go to contact page
-                                </div>
-                            </div>
+                            <div class="uni-context">Honors College</div>
+                            <div class="uni-context">Dean's Merit Scholar</div>
+                            <div class="uni-context">Data Science 3rd year</div>
                         </div>
-                    </div>
-                    <div class="exp-image-content">
-                        <img
-                            class="exp-image"
-                            id="exp-research-paper"
-                            src="files/paper.png"
-                            alt="Research Paper"
-                        />
-                        <img
-                            class="exp-image"
-                            id="exp-calendar"
-                            src="files/calendar.png"
-                            alt="UTC Calendar"
-                        />
-                        <img
-                            class="exp-image"
-                            id="exp-webpage"
-                            src="files/webpage.png"
-                            alt="UTC Webpage"
-                        />
+                        <div class="like-link" onclick="change_card('like-card')">Stuff I Like</div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card contact-card">
-                <div class="contact-card-content">
-                    <div class="contact-header-section">
-                        <h2 class="contact-header">Contact</h2>
-                    </div>
-                    <div class="contact-text-section">
-                        <div class="contact-text">
-                            For all business inquiries, career opportunities,
-                            friendly chats, or birthday invitations, please
-                            contact:
+                <div class="card-item like-card hidden-card">
+                    <div class="like-card-content">
+                        <div class="like-header-section">
+                            <h2 class="like-header">Stuff I Like</h2>
                         </div>
-                    </div>
-                    <div class="contact-email-section">
-                        <div class="contact-email-wrapper">
-                            <span class="copy-email">
+                        <div class="like-quote-section">
+                            <h4 class="quote-header">Quotes</h4>
+                            <div class="quote-text">
+                                <div class="quote-item">
+                                    <div class="quote">
+                                        The people who are crazy enough to think
+                                        they can change the world are the ones who
+                                        do.
+                                        <span class="quote-attribution">
+                                            &ndash; Steve Jobs
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="quote-item">
+                                    <div class="quote">
+                                        Live life easy; do it the hard way.
+                                        <span class="quote-attribution">
+                                            &ndash; My Grandfather
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="quote-item">
+                                    <div class="quote">
+                                        If you tell the truth, you don't have to
+                                        remember anything.
+                                        <span class="quote-attribution">
+                                            &ndash; Mark Twain
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="like-book-section">
+                            <h4 class="book-header">Books</h4>
+                            <div class="book-row">
                                 <img
-                                    id="copy-contact-email"
-                                    src="files/copy.png"
-                                    alt="Copy Email"
+                                    src="files/books/how-to-win-friends.jpeg"
+                                    alt="How To Win Friends and Influence People"
+                                    class="book"
                                 />
-                            </span>
-                            <span class="contact-email">
-                                me@majorschwartz.com
-                            </span>
+                                <img
+                                    src="files/books/the-myth-of-sisyphus.jpeg"
+                                    alt="The Myth of Sisyphus"
+                                    class="book"
+                                />
+                                <img
+                                    src="files/books/shoe-dog.jpeg"
+                                    alt="Shoe Dog"
+                                    class="book"
+                                />
+                                <img
+                                    src="files/books/exhalation.jpeg"
+                                    alt="Exhalation"
+                                    class="book"
+                                />
+                                <img
+                                    src="files/books/of-mice-and-men.jpeg"
+                                    alt="Of Mice and Men"
+                                    class="book"
+                                />
+                            </div>
+                        </div>
+                        <div class="like-channel-section">
+                            <h4 class="channel-header">YouTube</h4>
+                            <div class="channels">
+                                <div class="channel-item">
+                                    <span class="channel-name">Veritasium</span>
+                                    <span class="channel-icon-wrap">
+                                        <img
+                                            src="files/channels/veritasium-icon.jpeg"
+                                            alt="Icon"
+                                            id="ve-icon"
+                                            class="channel-icon"
+                                        />
+                                    </span>
+                                </div>
+                                <div class="channel-item">
+                                    <span class="channel-name">
+                                        Two Minute Papers
+                                    </span>
+                                    <span class="channel-icon-wrap">
+                                        <img
+                                            src="files/channels/two-minute-papers-icon.jpeg"
+                                            alt="Icon"
+                                            id="tmp-icon"
+                                            class="channel-icon"
+                                        />
+                                    </span>
+                                </div>
+                                <div class="channel-item">
+                                    <span class="channel-name">Tom Scott</span>
+                                    <span class="channel-icon-wrap">
+                                        <img
+                                            src="files/channels/tom-scott-icon.jpeg"
+                                            alt="Icon"
+                                            id="ts-icon"
+                                            class="channel-icon"
+                                        />
+                                    </span>
+                                </div>
+                                <div class="channel-item">
+                                    <span class="channel-name">Melodysheep</span>
+                                    <span class="channel-icon-wrap">
+                                        <img
+                                            src="files/channels/melodysheep-icon.jpeg"
+                                            alt="Icon"
+                                            id="ms-icon"
+                                            class="channel-icon"
+                                        />
+                                    </span>
+                                </div>
+                                <div class="channel-item">
+                                    <span class="channel-name">Vsauce</span>
+                                    <span class="channel-icon-wrap">
+                                        <img
+                                            src="files/channels/vsauce-icon.jpeg"
+                                            alt="Icon"
+                                            id="vs-icon"
+                                            class="channel-icon"
+                                        />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-item exp-card hidden-card">
+                    <div class="exp-card-content">
+                        <div class="exp-header-section">
+                            <h2 class="exp-header">Experience</h2>
+                        </div>
+                        <div class="timeline-section">
+                            <div class="timeline-bar"></div>
+                        </div>
+                        <div class="exp-timeline-wrapper">
+                            <div class="time-labels">
+                                <div class="year">2022</div>
+                                <div class="month">April</div>
+                                <div class="month">May</div>
+                                <div class="month">June</div>
+                                <div class="year">2023</div>
+                                <div class="month">May</div>
+                            </div>
+                            <div class="exp-items">
+                                <div class="exp-item">
+                                    <div class="item-main">
+                                        <span class="title">Research Assistant</span
+                                        ><span class="location">, UTC</span>
+                                    </div>
+                                    <div class="item-date">
+                                        April 2022 &ndash; April 2023
+                                    </div>
+                                </div>
+                                <div class="exp-item">
+                                    <div class="item-main">
+                                        <span class="title">Web Editor</span
+                                        ><span class="location">, UTC</span>
+                                    </div>
+                                    <div class="item-date">
+                                        May 2022 &ndash; Present
+                                    </div>
+                                </div>
+                                <div class="exp-item">
+                                    <div class="item-main">
+                                        <span class="title">Event Manager</span
+                                        ><span class="location">, UTC</span>
+                                    </div>
+                                    <div class="item-date">
+                                        June 2022 &ndash; Present
+                                    </div>
+                                </div>
+                                <div class="cta">
+                                    <div class="text">Put me to work...</div>
+                                    <div class="contact-link-text" onclick="change_card('contact-card')">
+                                        Go to contact page
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="exp-image-content">
+                            <img
+                                class="exp-image"
+                                id="exp-research-paper"
+                                src="files/paper.jpeg"
+                                alt="Research Paper"
+                            />
+                            <img
+                                class="exp-image"
+                                id="exp-calendar"
+                                src="files/calendar.jpeg"
+                                alt="UTC Calendar"
+                            />
+                            <img
+                                class="exp-image"
+                                id="exp-webpage"
+                                src="files/webpage.jpeg"
+                                alt="UTC Webpage"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-item contact-card hidden-card">
+                    <div class="contact-card-content">
+                        <div class="contact-header-section">
+                            <h2 class="contact-header">Contact</h2>
+                        </div>
+                        <div class="contact-text-section">
+                            <div class="contact-text">
+                                For all business inquiries, career opportunities,
+                                friendly chats, or birthday invitations, please
+                                contact:
+                            </div>
+                        </div>
+                        <div class="contact-email-section">
+                            <div class="contact-email-wrapper">
+                                <span class="copy-email">
+                                    <img
+                                        id="copy-contact-email"
+                                        src="files/copy.png"
+                                        alt="Copy Email"
+                                    />
+                                </span>
+                                <span class="contact-email">
+                                    me@majorschwartz.com
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
