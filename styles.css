@@ -71,37 +71,59 @@ body::-webkit-scrollbar {
 
 .hello-intro {
     position: absolute;
-    top: 40%;
-    left: 50%;
-    width: 60%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
 
-    visibility: hidden;
-    opacity: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    transition: opacity 1s;
+.hello-intro .top-space,
+.hello-intro .bottom-space {
+    background-color: rgba(112, 143, 255, 0.2);
+    width: 100%;
+}
+
+.hello-intro .top-space {
+    flex-grow: 1;
+}
+
+.hello-intro .bottom-space {
+    flex-grow: 1.25;
+}
+
+.hello-text,
+.progress-bar {
+    width: min(60%, 750px);
 }
 
 .hello-text {
     margin: 0;
     color: var(--secondary-color);
     font-family: var(--loading-font);
-    font-size: 16vw;
+    font-size: min(16vw, 200px);
     font-weight: 300;
     letter-spacing: 0px;
     text-align: center;
+    
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s;
 }
 
 .progress-bar {
-    width: 100%;
-    height: 3vw;
-    margin: auto;
+    height: min(1.5vw, 16px);
+    margin: 0;
+    z-index: 3;
 }
 
 .progress-bar .bar {
     position: relative;
     width: 0%;
-    height: 1.5vw;
+    height: 100%;
     background-color: var(--secondary-color);
 }
 
@@ -116,9 +138,9 @@ body::-webkit-scrollbar {
     transition: opacity 0s;
     position: absolute;
     right: 0;
-    transform: translateY(2vw);
+    transform: translateY(min(1.5vw, 16px));
     color: var(--secondary-color);
-    font-size: 1.5vw;
+    font-size: min(2vw, 16px);
     font-family: var(--loading-font);
     font-weight: bold;
 }
@@ -129,14 +151,19 @@ body::-webkit-scrollbar {
 }
 
 main {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     gap: 20px;
-    width: 100%;
+
+    width: 100vw;
+    height: 100vh;
+
     visibility: hidden;
-    /* height: 100vh; */
 }
 
 /* CARD STYLING */

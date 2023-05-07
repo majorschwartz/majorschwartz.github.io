@@ -1,19 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
     timing_handler([
-        {func: hello_sequence, timing: 700}
+        {func: hello_sequence, delay: 700, duration: 700}
     ]);
 });
 
 function timing_handler(arr) {
     arr.forEach(process => {
         setTimeout(function () {
-            (process.func)()
-        }, process.timing)
+            (process.func)(process.duration)
+        }, process.delay)
     })
 }
 
-function hello_sequence() {
-    helloSection = document.querySelector(".hello-intro");
+function hello_sequence(duration) {
+    helloSection = document.querySelector(".hello-text");
     setTimeout(function () {
         helloSection.style.visibility = "visible";
         helloSection.style.opacity = "100%";
@@ -34,11 +34,12 @@ function hello_sequence() {
             setTimeout(function () {
                 progressText.innerText = `${i}%`;
             }, i * 10);
+            console.log(i * 10);
         }
 
         setTimeout(function () {
             progressText.style.transition = "opacity 0.2s, transform 0.3s";
-            progressText.style.transform = "translateY(0px)";
+            progressText.style.transform = "translateY(-22%)";
         }, 1400);
         setTimeout(function () {
             progressText.classList.remove("shown");
