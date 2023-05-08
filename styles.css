@@ -9,7 +9,7 @@
     --main-font: "EB Garamond";
 
     /* ADDITIONAL GLOBAL STYLING */
-    --underline-height: 0.5vw;
+    --underline-height: 0.3vw;
     --box-shadow-bloom: 1vw;
     --card-main: 50vw;
 
@@ -84,7 +84,7 @@ body::-webkit-scrollbar {
 
 .hello-intro .top-space,
 .hello-intro .bottom-space {
-    background-color: rgba(112, 143, 255, 0.2);
+    /* background-color: rgba(112, 143, 255, 0.2); */
     width: 100%;
 }
 
@@ -273,7 +273,7 @@ main {
 .exp-items .cta .contact-link-text::after {
     content: " ";
     position: absolute;
-    bottom: -3px;
+    bottom: -0.3vw;
     left: 0px;
     width: 100%;
     height: var(--underline-height);

@@ -53,7 +53,7 @@ function change_card(selected_card) {
     console.log(selected_card);
     cards = ["intro-card", "about-card", "like-card", "exp-card", "contact-card"];
 
-
+    
 
     cards.forEach(card => {
         c = document.querySelector("." + card);
