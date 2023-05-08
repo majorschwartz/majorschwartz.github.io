@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     timing_handler([
         {func: hello_sequence, delay: 700, duration: 1500},
         {func: reveal_card, delay: 2200, duration: 700},
-        {func: recorrect_card, delay: 2900, duration: 400}
+        {func: recorrect_card, delay: 3200, duration: 1000}
     ]);
 });
 
@@ -34,7 +34,6 @@ function hello_sequence(duration) {
             setTimeout(function () {
                 progressText.innerText = `${i}%`;
             }, i * 10);
-            console.log(i * ((duration - 200) / complete_percent));
         }
 
         setTimeout(function () {
@@ -60,18 +59,45 @@ function reveal_card(duration) {
 
     helloText.style.transition = "opacity " + ((duration / 1000) * 0.33).toFixed(2).toString() + "s";
     helloText.classList.add("zero-opacity");
-    // card.style.transform = "translateY(" + (20 + arr[0]).toString() + "vh)";
-    setTimeout(function () {
-        card.style.transition = "transform 0s";
-    }, duration)
 }
 
 function recorrect_card(duration) {
+    duration_in_seconds = (duration / 1000).toFixed(2).toString();
+    card = document.querySelector(".card");
+    root = document.querySelector(":root");
+    // Make it non-crooked, larger, and center
+    
+    // card.style.transition = "all " + duration_in_seconds + "s";
+    // root.style.setProperty("--card-main", "70vw");
+    set_card_main(duration, 70);
 
+    setTimeout(function () {
+        card.style.transition = "transform 0s";
+    }, duration);
+}
+
+function set_card_main(duration, vw) {
+    card = document.querySelector(".card");
+    root = document.querySelector(":root");
+    main = document.querySelector("main");
+    
+    card.style.transition = "width 0s, height 0s";
+    
+    current_main = card.getBoundingClientRect().width;
+    new_main = main.getBoundingClientRect().width * (vw / 100);
+    
+    for (let i = 0; i < duration; i+=5) {
+        setTimeout(function () {
+            root.style.setProperty("--card-main", (current_main + ((i / duration) * (new_main - current_main))).toString() + "px");
+        }, i)
+    }
+
+    setTimeout(function () {
+        root.style.setProperty("--card-main", vw + "vw");
+    }, duration);
 }
 
 function change_card(selected_card) {
-    console.log(selected_card);
     cards = ["intro-card", "about-card", "like-card", "exp-card", "contact-card"];
 
     cards.forEach(card => {

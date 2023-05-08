@@ -12,6 +12,7 @@
     --underline-height: 0.3vw;
     --box-shadow-bloom: 1vw;
     --card-main: min(45vw, 600px);
+    --card-change-main: 70vw;
 
     /* FRAME WIDTH AND HEIGHT */
     --full-frame-width: 100vw;
@@ -45,6 +46,8 @@
     --contact-email-margin: calc(var(--card-main) * 0.003);
     --contact-email-copy-height: calc(var(--card-main) * 0.035);
 }
+
+
 
 /* STANDARD BODY POSITIONING */
 
@@ -210,6 +213,10 @@ main {
 
 .zero-opacity {
     opacity: 0% !important;
+}
+
+.card.enlarged {
+    --card-main: var(--card-change-main) !important;
 }
 
 .hidden-card {
