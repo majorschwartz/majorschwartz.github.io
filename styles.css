@@ -11,7 +11,7 @@
     /* ADDITIONAL GLOBAL STYLING */
     --underline-height: 0.3vw;
     --box-shadow-bloom: 1vw;
-    --card-main: 50vw;
+    --card-main: min(45vw, 600px);
 
     /* FRAME WIDTH AND HEIGHT */
     --full-frame-width: 100vw;
@@ -66,6 +66,25 @@ body {
 
 body::-webkit-scrollbar {
     display: none;
+}
+
+/* Z-INDEX AND MAIN STYLING */
+
+.progress-bar {
+    z-index: 4;
+}
+
+.bottom-space {
+    z-index: 3;
+}
+
+.progress-bar .bar .text {
+    z-index: 100;
+}
+
+.bottom-space {
+    color: inherit;
+    background-color: var(--primary-color);
 }
 
 /* HELLO INTRO */
@@ -158,33 +177,39 @@ main {
     top: 0;
     left: 0;
 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 20px;
-
-    width: 100vw;
-    /* height: 100%; */
+    width: var(--full-frame-width);
+    height: var(--full-frame-height);
 
     visibility: visible;
+    overflow: hidden;
 }
 
 /* CARD STYLING */
 
 .card {
-    position: relative;
-    /* position: absolute; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    margin-left: calc((var(--full-frame-width) - var(--card-main)) / 2);
+    margin-right:  calc((var(--full-frame-width) - var(--card-main)) / 2);
     width: var(--card-main);
     height: calc(var(--card-main) * 0.5625);
     overflow: hidden;
+    
     background-image: url("files/white-texture.jpeg");
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: cover;
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2),
         0 0px 20px 0 rgba(0, 0, 0, 0.19) !important;
-    /* transform: translateY(100vh); */
-    /* animation: flip-with-rotate 2s infinite; */
+    
+    transform: translate(0vw, 80vh);
+    /* transition: transform 1s, rotate 0.5s; */
+}
+
+.zero-opacity {
+    opacity: 0% !important;
 }
 
 .hidden-card {
@@ -224,6 +249,27 @@ main {
     -ms-user-select: none;
 }
 
+/* BOTTOM MENU STYLING */
+
+.bottom-menu {
+    height: min-content;
+    width: calc(var(--card-main));
+}
+
+.bottom-menu .bottom-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    list-style-type: none;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.bottom-menu .bottom-list .row-item {
+    font-size: 3vw;
+}
+
 /* INTRO CARD */
 
 .intro-card .intro-header-section {
@@ -241,7 +287,7 @@ main {
 .intro-card .menu-section {
     font-size: var(--intro-menu-fsize);
     position: absolute;
-    width: 60%;
+    width: 85%;
     bottom: 8%;
     right: 50%;
     transform: translateX(50%);
