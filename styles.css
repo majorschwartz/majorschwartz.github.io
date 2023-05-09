@@ -9,45 +9,12 @@
     --main-font: "EB Garamond";
 
     /* ADDITIONAL GLOBAL STYLING */
-    --underline-height: 0.3vw;
-    --box-shadow-bloom: 1vw;
-    --card-main: min(45vw, 600px);
-    --card-change-main: 70vw;
+    --card-main: min(45vmin, 600px);
 
     /* FRAME WIDTH AND HEIGHT */
     --full-frame-width: 100vw;
     --full-frame-height: 100vh;
-
-    /* INTRO CARD - CONTROL VARIABLES */
-    --card-header-fsize: calc(var(--card-main) * 0.09);
-    --intro-menu-fsize: calc(var(--card-main) * 0.04);
-
-    /* ABOUT CARD - CONTROL VARIABLES */
-    --about-uni-name-fsize: calc(var(--card-main) * 0.032);
-    --about-uni-context-fsize: calc(var(--card-main) * 0.03);
-
-    /* LIKE CARD - CONTROL VARIABLES */
-    --like-quote-channel-fsize: calc(var(--card-main) * 0.0211);
-    --like-quote-attribution-fsize: calc(var(--card-main) * 0.015);
-    --like-channel-icon-spacing: calc(var(--card-main) * 0.01);
-    --like-channel-icon-dimension: calc(var(--card-main) * 0.03);
-
-    /* EXP CARD - CONTROL VARIABLES */
-    --exp-timeline-item-height: calc(var(--card-main) * 0.075);
-    --exp-timeline-primary-fsize: calc(var(--card-main) * 0.038);
-    --exp-timeline-secondary-fsize: calc(var(--card-main) * 0.025);
-    --exp-timeline-triangle-dimension: calc(var(--card-main) * 0.012);
-    --exp-timeline-sub-fsize: calc(var(--card-main) * 0.018);
-    --exp-contact-link-margin: calc(var(--card-main) * 0.02);
-
-    /* CONTACT CARD - CONTROL VARIABLES */
-    --contact-text-fsize: calc(var(--card-main) * 0.033);
-    --contact-email-fsize: calc(var(--card-main) * 0.05);
-    --contact-email-margin: calc(var(--card-main) * 0.003);
-    --contact-email-copy-height: calc(var(--card-main) * 0.035);
 }
-
-
 
 /* STANDARD BODY POSITIONING */
 
@@ -120,14 +87,14 @@ body::-webkit-scrollbar {
 
 .hello-text,
 .progress-bar {
-    width: min(60%, 750px);
+    width: min(60vmin, 750px);
 }
 
 .hello-text {
     margin: 0;
     color: var(--secondary-color);
     font-family: var(--loading-font);
-    font-size: min(16vw, 200px);
+    font-size: min(16vmin, 200px);
     font-weight: 300;
     letter-spacing: 0px;
     text-align: center;
@@ -138,7 +105,7 @@ body::-webkit-scrollbar {
 }
 
 .progress-bar {
-    height: min(1.5vw, 16px);
+    height: min(1.5vmin, 16px);
     margin: 0;
     z-index: 3;
 }
@@ -161,10 +128,10 @@ body::-webkit-scrollbar {
     
     font-family: var(--loading-font);
     font-weight: bold;
-    font-size: min(2vw, 16px);
+    font-size: min(2vmin, 16px);
     color: var(--secondary-color);
 
-    transform: translateY(min(1.5vw, 16px));
+    transform: translateY(min(1.5vmin, 16px));
     transition: opacity 0.2s, transform 0.3s;
     visibility: hidden;
     opacity: 0;
@@ -191,11 +158,9 @@ main {
 
 .card {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
     
-    margin-left: calc((var(--full-frame-width) - var(--card-main)) / 2);
-    margin-right:  calc((var(--full-frame-width) - var(--card-main)) / 2);
     width: var(--card-main);
     height: calc(var(--card-main) * 0.5625);
     overflow: hidden;
@@ -207,16 +172,63 @@ main {
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2),
         0 0px 20px 0 rgba(0, 0, 0, 0.19) !important;
     
-    transform: translate(0vw, 80vh);
-    /* transition: transform 1s, rotate 0.5s; */
+    transform: translate(-50%, 80%);
+}
+
+.intro-card,
+.about-card,
+.like-card,
+.exp-card,
+.contact-card {
+    /* CARD GLOBALS */
+    --underline-height: 0.3vw;
+    --box-shadow-bloom: 1vw;
+
+    /* INTRO CARD - CONTROL VARIABLES */
+    --card-header-fsize: calc(var(--card-main) * 0.09);
+    --intro-menu-fsize: calc(var(--card-main) * 0.04);
+
+    /* ABOUT CARD - CONTROL VARIABLES */
+    --about-uni-name-fsize: calc(var(--card-main) * 0.032);
+    --about-uni-context-fsize: calc(var(--card-main) * 0.03);
+
+    /* LIKE CARD - CONTROL VARIABLES */
+    --like-quote-channel-fsize: calc(var(--card-main) * 0.0211);
+    --like-quote-attribution-fsize: calc(var(--card-main) * 0.015);
+    --like-channel-icon-spacing: calc(var(--card-main) * 0.01);
+    --like-channel-icon-dimension: calc(var(--card-main) * 0.03);
+
+    /* EXP CARD - CONTROL VARIABLES */
+    --exp-timeline-item-height: calc(var(--card-main) * 0.075);
+    --exp-timeline-primary-fsize: calc(var(--card-main) * 0.038);
+    --exp-timeline-secondary-fsize: calc(var(--card-main) * 0.025);
+    --exp-timeline-triangle-dimension: calc(var(--card-main) * 0.012);
+    --exp-timeline-sub-fsize: calc(var(--card-main) * 0.018);
+    --exp-contact-link-margin: calc(var(--card-main) * 0.02);
+
+    /* CONTACT CARD - CONTROL VARIABLES */
+    --contact-text-fsize: calc(var(--card-main) * 0.033);
+    --contact-email-fsize: calc(var(--card-main) * 0.05);
+    --contact-email-margin: calc(var(--card-main) * 0.003);
+    --contact-email-copy-height: calc(var(--card-main) * 0.035);
+}
+
+@property --card-main {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: min(45vmin, 600px);
 }
 
 .zero-opacity {
     opacity: 0% !important;
 }
 
-.card.enlarged {
-    --card-main: var(--card-change-main) !important;
+*.expanded {
+    --card-main: min(72vw, 103.5vh) !important;
+}
+
+.card.topset {
+    z-index: 5 !important;
 }
 
 .hidden-card {
@@ -294,7 +306,7 @@ main {
 .intro-card .menu-section {
     font-size: var(--intro-menu-fsize);
     position: absolute;
-    width: 85%;
+    width: 60%;
     bottom: 8%;
     right: 50%;
     transform: translateX(50%);

@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     timing_handler([
         {func: hello_sequence, delay: 700, duration: 1500},
         {func: reveal_card, delay: 2200, duration: 700},
-        {func: recorrect_card, delay: 3200, duration: 1000}
+        {func: recorrect_card, delay: 2700, duration: 1000},
+        {func: bye_bye_hello, delay: 3700, duration: 0}
     ]);
 });
 
@@ -46,33 +47,56 @@ function hello_sequence(duration) {
 }
 
 function reveal_card(duration) {
+    duration_in_seconds = (duration / 1000).toFixed(2);
     card = document.querySelector(".card");
     helloText = document.querySelector(".hello-text");
-    num = parseFloat((Math.random() * 12 - 6).toFixed(2));
+    arr = Array.from({ length: 2 }, () => parseFloat((Math.random() * (-5 - (-10)) - 10).toFixed(2)));
 
     card.style.transition = "transform 0s";
-    card.style.transform = "translate(" + num.toString() + "vw, 80vh)";
-    card.style.rotate = (num * -1).toString() + "deg";
+    card.style.transform = "translate(-" + (50 + arr[0]).toString() + "%, 80%)";
 
-    card.style.transition = "transform " + (duration / 1000).toFixed(2).toString() + "s";
-    card.style.transform = "translate(" + (num * -1).toString() + "vw, 15vh)";
+    card.style.transition = "transform " + duration_in_seconds.toString() + "s, rotate " + duration_in_seconds.toString() + "s";
+    card.style.transform = "translate(-" + (50 + (arr[0] * -1)).toString() + "%, -" + (150 + arr[0]).toString() + "%)";
+    card.style.rotate = (arr[0] * 0.8).toString() + "deg";
 
     helloText.style.transition = "opacity " + ((duration / 1000) * 0.33).toFixed(2).toString() + "s";
     helloText.classList.add("zero-opacity");
+
+    setTimeout(function () {
+        card.classList.add("topset");
+    }, duration);
+}
+
+function bye_bye_hello(duration) {
+    hello_wrap = document.querySelector(".hello-intro");
+    hello_wrap.style.display = "none";
 }
 
 function recorrect_card(duration) {
     duration_in_seconds = (duration / 1000).toFixed(2).toString();
     card = document.querySelector(".card");
+    card_childs = document.querySelectorAll(".card *");
     root = document.querySelector(":root");
-    // Make it non-crooked, larger, and center
+
     
     // card.style.transition = "all " + duration_in_seconds + "s";
     // root.style.setProperty("--card-main", "70vw");
-    set_card_main(duration, 70);
+    // set_card_main(duration, 70);
+
+    card_childs.forEach(ele => {
+        ele.style.transition = "--card-main " + duration_in_seconds + "s";
+        ele.classList.add("expanded");
+    });
+    card.style.transition = "--card-main " + duration_in_seconds + "s, rotate " + duration_in_seconds + "s, transform " + duration_in_seconds + "s";
+    card.classList.add("expanded");
+    card.style.rotate = "0deg";
+    card.style.transform = "translate(-50%, -50%)";
 
     setTimeout(function () {
-        card.style.transition = "transform 0s";
+        card_childs.forEach(ele => {
+            ele.style.transition = "all 0s";
+        });
+        card.style.transition = "all 0s";
     }, duration);
 }
 
@@ -110,7 +134,4 @@ function change_card(selected_card) {
             c.classList.remove("hidden-card");
         }
     });
-
-
-
 }
