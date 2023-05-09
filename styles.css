@@ -107,7 +107,6 @@ body::-webkit-scrollbar {
 .progress-bar {
     height: min(1.5vmin, 16px);
     margin: 0;
-    z-index: 3;
 }
 
 .progress-bar .bar {
@@ -231,10 +230,10 @@ main {
     z-index: 5 !important;
 }
 
-.hidden-card {
+/* .hidden-card {
     visibility: hidden !important;
     display: none !important;
-}
+} */
 
 .intro-header,
 .about-header,

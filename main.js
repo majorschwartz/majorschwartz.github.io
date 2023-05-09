@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     timing_handler([
-        {func: hello_sequence, delay: 700, duration: 1500},
+        {func: init_hide_cards, delay: 0, duration: 0},
+        {func: hello_sequence, delay: 700, duration: 1200},
         {func: reveal_card, delay: 2200, duration: 700},
         {func: recorrect_card, delay: 2700, duration: 1000},
         {func: bye_bye_hello, delay: 3700, duration: 0}
@@ -39,7 +40,7 @@ function hello_sequence(duration) {
 
         setTimeout(function () {
             progressText.style.transform = "translateY(-22%)";
-        }, duration - 100);
+        }, duration - 200);
         setTimeout(function () {
             progressText.classList.remove("shown");
         }, duration);
@@ -124,14 +125,153 @@ function set_card_main(duration, vw) {
 function change_card(selected_card) {
     cards = ["intro-card", "about-card", "like-card", "exp-card", "contact-card"];
 
-    cards.forEach(card => {
-        c = document.querySelector("." + card);
-        if (!(selected_card == card)) {
-            if (!(c.classList.contains("hidden-card"))) {
-                c.classList.add("hidden-card");
-            }
-        } else {
-            c.classList.remove("hidden-card");
+    // GETTING CURRENT CARD
+    cards.forEach(function(card_ele) {
+        if (!document.querySelector("." + card_ele).classList.contains("hidden-card")) {
+            current_card = card_ele;
         }
-    });
+    })
+    console.log(current_card);
+    console.log(selected_card);
+
+    current_card = document.querySelector("." + current_card);
+    selected_card = document.querySelector("." + selected_card);
+
+
+
+    // HIDING CURRENT CARD ITEMS
+    total = [];
+    children = [];
+    function bfs(ele) {
+        ele.childNodes.forEach(function(child) {
+            children.push(child);
+            total.push(child);
+        });
+        save = children;
+        children = [];
+        save.forEach(function(child) {
+            bfs(child);
+        });
+    }
+    current_card.classList.add("hidden-card");
+    bfs(current_card);
+    
+    total.reverse();
+    console.log(total);
+
+    milli_between = 10;
+    sec_transition = 0.5;
+    for (let i = 0; i < total.length; i++) {
+        ele = total[i];
+        item_fade(ele, true, i * milli_between, sec_transition);
+    }
+
+    // CALCULATING LENGTH OF PREVIOUS HIDE
+    next_delay = (total.length * milli_between) + (sec_transition * 1000);
+    
+    // SHOWING NEXT CARD
+    setTimeout(function() {
+        total = [];
+        children = [];
+        function bfs(ele) {
+            ele.childNodes.forEach(function(child) {
+                children.push(child);
+                total.push(child);
+            });
+            save = children;
+            children = [];
+            save.forEach(function(child) {
+                bfs(child);
+            });
+        }
+        selected_card.classList.remove("hidden-card");
+        bfs(selected_card);
+
+        milli_between = 10;
+        sec_transition = 0.5;
+        for (let i = 0; i < total.length; i++) {
+            ele = total[i];
+            item_fade(ele, false, i * milli_between, sec_transition);
+        }
+    }, next_delay);
 }
+
+function init_hide_cards(duration) {
+    cards = ["about-card", "like-card", "exp-card", "contact-card"];
+
+    cards.forEach(function(card_ele) {
+        // HIDING CURRENT CARD ITEMS
+        total = [];
+        children = [];
+        function bfs(ele) {
+            ele.childNodes.forEach(function(child) {
+                children.push(child);
+                total.push(child);
+            });
+            save = children;
+            children = [];
+            save.forEach(function(child) {
+                bfs(child);
+            });
+        }
+        card_ele = document.querySelector("." + card_ele);
+        card_ele.classList.add("hidden-card");
+        bfs(card_ele);
+        
+        total.reverse();
+
+        // for (let i = 0; i < total.length; i++) {
+        //     ele = total[i];
+        //     item_fade(ele, true, 0, 0);
+        // }
+
+        total.forEach(function(ele) {
+            item_fade(ele || {}, true, 0, 0);
+        })
+    })
+}
+
+function item_fade(element, fade_out, delay, duration) {
+    if (!fade_out) {
+        try {
+            element.style.visibility = "visible";
+        } catch (e) {}
+    } else {
+        setTimeout(function() {
+            try {
+                element.style.visibility = "hidden";
+            } catch (e) {}
+        }, delay + (duration * 1000));
+    }
+
+
+    setTimeout(function() {
+        element.style.transition = "opacity " + duration.toString() + "s";
+        if (fade_out) {
+            try {
+                element.style.opacity = "0%";
+            } catch (e) {}
+        } else {
+            try {
+                element.style.opacity = "100%";
+            } catch (e) {}
+        }
+    }, delay);
+}
+
+
+
+
+
+
+
+
+//     if (!(selected_card == card)) {
+    //         if (!(c.classList.contains("hidden-card"))) {
+    //             c.classList.add("hidden-card");
+    //         }
+    //     } else {
+    //         c.classList.remove("hidden-card");
+    //     }
+
+    // });
