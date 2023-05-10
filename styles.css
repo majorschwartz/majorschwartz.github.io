@@ -162,7 +162,8 @@ main {
     
     width: var(--card-main);
     height: calc(var(--card-main) * 0.5625);
-    overflow: hidden;
+    z-index: 1;
+    /* overflow: hidden; */
     
     background-image: url("files/white-texture.jpeg");
     background-repeat: no-repeat;
@@ -178,9 +179,10 @@ main {
 .about-card,
 .like-card,
 .exp-card,
-.contact-card {
+.contact-card,
+.bottom-menu {
     /* CARD GLOBALS */
-    --underline-height: 3px;
+    --underline-height: calc(var(--card-main) * 0.005);
     --box-shadow-bloom: 1vw;
 
     /* INTRO CARD - CONTROL VARIABLES */
@@ -224,6 +226,10 @@ main {
 
 *.expanded {
     --card-main: min(72vw, 103.5vh) !important;
+}
+
+.hello-intro.backset {
+    z-index: 0 !important;
 }
 
 .card.topset {
@@ -270,22 +276,60 @@ main {
 /* BOTTOM MENU STYLING */
 
 .bottom-menu {
-    height: min-content;
-    width: calc(var(--card-main));
+    --card-main: min(72vw, 103.5vh);
+    display: none;
+    
+    font-size: var(--intro-menu-fsize);
+    position: absolute;
+    z-index: 0;
+    
+    width: calc(var(--card-main) * 0.6);
+    bottom: calc(50% - (var(--card-main) * 0.27));
+    
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.bottom-menu.shown {
+    display: initial;
 }
 
 .bottom-menu .bottom-list {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: end;
     list-style-type: none;
-    justify-content: space-between;
+    font-family: var(--main-font);
+    font-weight: 200;
     margin: 0;
     padding: 0;
 }
 
 .bottom-menu .bottom-list .row-item {
-    font-size: 3vw;
+    position: relative;
+    /* transform: translateY(160%); */
+}
+
+.bottom-menu .bottom-list .row-item:hover {
+    cursor: pointer;
+}
+
+.bottom-menu .bottom-list .row-item::after {
+    content: "";
+    position: absolute;
+    bottom: -0.3vw;
+    left: 0px;
+    width: 100%;
+    height: var(--underline-height);
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.15s ease-out;
+}
+
+.bottom-menu .bottom-list .row-item:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 /* INTRO CARD */
@@ -335,7 +379,7 @@ main {
 .intro-card .menu-section .menu-list .menu-item::after,
 .about-card .like-link::after,
 .exp-items .cta .contact-link-text::after {
-    content: " ";
+    content: "";
     position: absolute;
     bottom: -0.3vw;
     left: 0px;
@@ -404,8 +448,8 @@ main {
     position: absolute;
     font-size: var(--intro-menu-fsize);
     font-family: var(--main-font);
-    bottom: 30%;
-    right: 6%;
+    bottom: 25%;
+    right: 30%;
 }
 
 /* LIKE CARD */
@@ -438,7 +482,7 @@ main {
 .like-card .like-quote-section {
     position: absolute;
     width: 45%;
-    height: 45%;
+    height: 48%;
     top: 8%;
     left: 4%;
 }
@@ -616,7 +660,7 @@ main {
 
 .exp-items .exp-item::before,
 .exp-items .cta::before {
-    content: " ";
+    content: "";
     position: absolute;
     width: 0;
     height: 0;
