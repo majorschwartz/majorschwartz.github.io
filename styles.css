@@ -180,7 +180,7 @@ main {
 .exp-card,
 .contact-card {
     /* CARD GLOBALS */
-    --underline-height: 0.3vw;
+    --underline-height: 3px;
     --box-shadow-bloom: 1vw;
 
     /* INTRO CARD - CONTROL VARIABLES */
