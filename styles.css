@@ -228,7 +228,8 @@ main {
     --card-main: min(72vw, 103.5vh) !important;
 }
 
-.hello-intro.backset {
+.hello-intro.backset,
+.progress-bar.backset {
     z-index: 0 !important;
 }
 

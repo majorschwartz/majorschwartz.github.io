@@ -89,8 +89,10 @@ function recorrect_card(duration) {
     card_childs = document.querySelectorAll(".card *");
     root = document.querySelector(":root");
     helloSection = document.querySelector(".hello-intro");
+    progressBar = document.querySelector(".progress-bar");
 
     helloSection.classList.add("backset");
+    progressBar.classList.add("backset");
     // card.classList.add("topset");
 
     // card.style.transition = "all " + duration_in_seconds + "s";
