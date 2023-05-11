@@ -225,7 +225,8 @@ main {
 }
 
 *.expanded {
-    --card-main: min(72vw, 103.5vh) !important;
+    --card-main: 84vmin !important;
+    /* min(84vw, 120.75vh) */
 }
 
 .hello-intro.backset,
@@ -277,7 +278,7 @@ main {
 /* BOTTOM MENU STYLING */
 
 .bottom-menu {
-    --card-main: min(72vw, 103.5vh);
+    --card-main: 84vmin;
     display: none;
     
     font-size: var(--intro-menu-fsize);

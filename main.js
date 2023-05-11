@@ -114,6 +114,7 @@ function recorrect_card(duration) {
     card.classList.add("expanded");
     card.style.rotate = "0deg";
     card.style.transform = "translate(-50%, -50%)";
+    // set_card_main(duration, 84);
 
     setTimeout(function () {
         card_childs.forEach((ele) => {
@@ -128,14 +129,14 @@ function set_card_main(duration, vw) {
     root = document.querySelector(":root");
     main = document.querySelector("main");
 
-    card.style.transition = "width 0s, height 0s";
+    // card.style.transition = "width 0s, height 0s";
 
     current_main = card.getBoundingClientRect().width;
     new_main = main.getBoundingClientRect().width * (vw / 100);
 
     for (let i = 0; i < duration; i += 5) {
         setTimeout(function () {
-            root.style.setProperty(
+            card.style.setProperty(
                 "--card-main",
                 (
                     current_main +
@@ -146,7 +147,7 @@ function set_card_main(duration, vw) {
     }
 
     setTimeout(function () {
-        root.style.setProperty("--card-main", vw + "vw");
+        card.style.setProperty("--card-main", vw + "vw");
     }, duration);
 }
 
@@ -286,7 +287,7 @@ function show_bmenu() {
     for (let i = 0; i < bmenu_items.length; i++) {
         bmenu_items[i].style.transition = "transform 0.5s";
         setTimeout(function () {
-            bmenu_items[i].style.transform = "translateY(180%)";
+            bmenu_items[i].style.transform = "translateY(200%)";
         }, (i + 1) * 100);
     }
 }
@@ -319,13 +320,3 @@ function item_fade(element, fade_out, delay, duration) {
         }
     }, delay);
 }
-
-//     if (!(selected_card == card)) {
-//         if (!(c.classList.contains("hidden-card"))) {
-//             c.classList.add("hidden-card");
-//         }
-//     } else {
-//         c.classList.remove("hidden-card");
-//     }
-
-// });
