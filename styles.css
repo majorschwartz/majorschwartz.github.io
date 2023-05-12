@@ -61,6 +61,7 @@ body {
     width: var(--full-frame-width);
     -ms-overflow-style: none;
     scrollbar-width: none;
+    overflow: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -195,35 +196,24 @@ main {
     
     width: var(--full-frame-width);
     height: calc(var(--full-frame-width) * 0.5625);
+
+    transform-origin: center;
+    transform: translate(-50%, 80%) scale(0.5) rotate(0deg);
     
     background-image: url("files/white-texture.jpeg");
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: cover;
+
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2),
         0 0px 20px 0 rgba(0, 0, 0, 0.19) !important;
-    
-    transform: translate(-50%, 80%) scale(1) rotate(0deg);
 }
 
 /* #endregion */
 
 /* #region -- APPLIED STYLES -- */
 
-.zero-opacity {
-    opacity: 0% !important;
-}
-
-.hello-intro.backset,
-.progress-bar.backset {
-    z-index: 0 !important;
-}
-
-.card.topset {
-    z-index: 5 !important;
-}
-
-.hidden-card {
+.hidden, .hidden-card {
     visibility: hidden !important;
     display: none !important;
 }
@@ -231,6 +221,19 @@ main {
 .shown {
     visibility: visible !important;
     opacity: 100% !important;
+}
+
+.zero-opacity {
+    opacity: 0% !important;
+}
+
+.card.topset {
+    z-index: 5 !important;
+}
+
+.hello-intro.backset,
+.progress-bar.backset {
+    z-index: 0 !important;
 }
 
 /* #endregion */
