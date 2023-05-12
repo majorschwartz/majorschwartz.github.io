@@ -2,21 +2,50 @@
     /* MAIN COLORS */
     --primary-color: #f5f5f5;
     --secondary-color: #242424;
-    --test-bg-color: rgba(255, 153, 0, 0.1);
+    --test-bg-color: rgba(255, 192, 98, 0.1);
 
     /* MAIN FONTS */
     --loading-font: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --main-font: "EB Garamond";
 
-    /* ADDITIONAL GLOBAL STYLING */
-    --card-main: min(45vmin, 600px);
-
     /* FRAME WIDTH AND HEIGHT */
     --full-frame-width: 100vw;
     --full-frame-height: 100vh;
+
+    /* ADDITIONAL STYLES */
+    --underline-height: 0.5vw;
+    --box-shadow-bloom: 1vw;
+
+    /* INTRO CARD - CONTROL VARIABLES */
+    --card-header-fsize: 9vw;
+    --intro-menu-fsize: 4vw;
+
+    /* ABOUT CARD - CONTROL VARIABLES */
+    --about-uni-name-fsize: 3.2vw;
+    --about-uni-context-fsize: 3vw;
+
+    /* LIKE CARD - CONTROL VARIABLES */
+    --like-quote-channel-fsize: 2.11vw;
+    --like-quote-attribution-fsize: 1.5vw;
+    --like-channel-icon-spacing: 1vw;
+    --like-channel-icon-dimension: 3vw;
+
+    /* EXP CARD - CONTROL VARIABLES */
+    --exp-timeline-item-height: 7.5vw;
+    --exp-timeline-primary-fsize: 3.8vw;
+    --exp-timeline-secondary-fsize: 2.5vw;
+    --exp-timeline-triangle-dimension: 1.2vw;
+    --exp-timeline-sub-fsize: 1.8vw;
+    --exp-contact-link-margin: 2vw;
+
+    /* CONTACT CARD - CONTROL VARIABLES */
+    --contact-text-fsize: 3.3vw;
+    --contact-email-fsize: 5vw;
+    --contact-email-margin: 0.3vw;
+    --contact-email-copy-height: 3.5vw;
 }
 
-/* STANDARD BODY POSITIONING */
+/* #region -- HTML & BODY -- */
 
 html,
 body {
@@ -38,7 +67,9 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-/* Z-INDEX AND MAIN STYLING */
+/* #endregion */
+
+/* #region -- Z-INDEXING -- */
 
 .progress-bar {
     z-index: 4;
@@ -52,12 +83,9 @@ body::-webkit-scrollbar {
     z-index: 100;
 }
 
-.bottom-space {
-    color: inherit;
-    /* background-color: var(--primary-color); */
-}
+/* #endregion */
 
-/* HELLO INTRO */
+/* #region -- HELLO INTRO -- */
 
 .hello-intro {
     position: absolute;
@@ -73,7 +101,6 @@ body::-webkit-scrollbar {
 
 .hello-intro .top-space,
 .hello-intro .bottom-space {
-    /* background-color: rgba(112, 143, 255, 0.2); */
     width: 100%;
 }
 
@@ -83,6 +110,7 @@ body::-webkit-scrollbar {
 
 .hello-intro .bottom-space {
     flex-grow: 1.25;
+    /* background-color: var(--primary-color); */
 }
 
 .hello-text,
@@ -136,10 +164,9 @@ body::-webkit-scrollbar {
     opacity: 0;
 }
 
-.shown {
-    visibility: visible !important;
-    opacity: 100% !important;
-}
+/* #endregion */
+
+/* #region -- MAIN -- */
 
 main {
     position: absolute;
@@ -153,7 +180,9 @@ main {
     overflow: hidden;
 }
 
-/* CARD STYLING */
+/* #endregion */
+
+/* #region -- CARD -- */
 
 .card {
     position: absolute;
@@ -175,52 +204,12 @@ main {
     transform: translate(-50%, 80%) scale(1);
 }
 
-.intro-card,
-.about-card,
-.like-card,
-.exp-card,
-.contact-card,
-.bottom-menu {
-    /* CARD GLOBALS */
-    --underline-height: calc(var(--card-main) * 0.005);
-    --box-shadow-bloom: 1vw;
+/* #endregion */
 
-    /* INTRO CARD - CONTROL VARIABLES */
-    --card-header-fsize: calc(var(--card-main) * 0.09);
-    --intro-menu-fsize: calc(var(--card-main) * 0.04);
-
-    /* ABOUT CARD - CONTROL VARIABLES */
-    --about-uni-name-fsize: calc(var(--card-main) * 0.032);
-    --about-uni-context-fsize: calc(var(--card-main) * 0.03);
-
-    /* LIKE CARD - CONTROL VARIABLES */
-    --like-quote-channel-fsize: calc(var(--card-main) * 0.0211);
-    --like-quote-attribution-fsize: calc(var(--card-main) * 0.015);
-    --like-channel-icon-spacing: calc(var(--card-main) * 0.01);
-    --like-channel-icon-dimension: calc(var(--card-main) * 0.03);
-
-    /* EXP CARD - CONTROL VARIABLES */
-    --exp-timeline-item-height: calc(var(--card-main) * 0.075);
-    --exp-timeline-primary-fsize: calc(var(--card-main) * 0.038);
-    --exp-timeline-secondary-fsize: calc(var(--card-main) * 0.025);
-    --exp-timeline-triangle-dimension: calc(var(--card-main) * 0.012);
-    --exp-timeline-sub-fsize: calc(var(--card-main) * 0.018);
-    --exp-contact-link-margin: calc(var(--card-main) * 0.02);
-
-    /* CONTACT CARD - CONTROL VARIABLES */
-    --contact-text-fsize: calc(var(--card-main) * 0.033);
-    --contact-email-fsize: calc(var(--card-main) * 0.05);
-    --contact-email-margin: calc(var(--card-main) * 0.003);
-    --contact-email-copy-height: calc(var(--card-main) * 0.035);
-}
+/* #region -- APPLIED STYLES -- */
 
 .zero-opacity {
     opacity: 0% !important;
-}
-
-*.expanded {
-    --card-main: 84vmin !important;
-    /* min(84vw, 120.75vh) */
 }
 
 .hello-intro.backset,
@@ -232,10 +221,19 @@ main {
     z-index: 5 !important;
 }
 
-/* .hidden-card {
+.hidden-card {
     visibility: hidden !important;
     display: none !important;
-} */
+}
+
+.shown {
+    visibility: visible !important;
+    opacity: 100% !important;
+}
+
+/* #endregion */
+
+/* #region -- CARD SHARED STYLES -- */
 
 .intro-header,
 .about-header,
@@ -249,15 +247,6 @@ main {
     padding: 0;
 }
 
-.intro-header,
-.contact-header {
-    text-align: center;
-}
-
-.exp-header {
-    text-align: right;
-}
-
 .about-card .about-portrait,
 .like-book-section .book-row .book,
 .exp-image,
@@ -269,7 +258,9 @@ main {
     -ms-user-select: none;
 }
 
-/* BOTTOM MENU STYLING */
+/* #endregion */
+
+/* #region -- BOTTOM MENU -- */
 
 .bottom-menu {
     --card-main: 84vmin;
@@ -328,7 +319,9 @@ main {
     transform-origin: bottom left;
 }
 
-/* INTRO CARD */
+/* #endregion */
+
+/* #region -- INTRO CARD -- */
 
 .intro-card .intro-header-section {
     position: absolute;
@@ -340,6 +333,7 @@ main {
 
 .intro-card .intro-header-section .intro-header {
     font-size: var(--card-header-fsize);
+    text-align: center;
 }
 
 .intro-card .menu-section {
@@ -394,7 +388,9 @@ main {
     transform-origin: bottom left;
 }
 
-/* ABOUT ME CARD */
+/* #endregion */
+
+/* #region -- ABOUT ME CARD -- */
 
 .about-card .about-portrait {
     position: absolute;
@@ -448,7 +444,9 @@ main {
     right: 30%;
 }
 
-/* LIKE CARD */
+/* #endregion */
+
+/* #region -- LIKE CARD -- */
 
 .like-card .like-card-content {
     height: 100%;
@@ -574,7 +572,9 @@ main {
     box-shadow: 0px 0px var(--box-shadow-bloom) rgba(0, 0, 0, 0.5);
 }
 
-/* EXPERIENCE CARD */
+/* #endregion */
+
+/* #region -- EXPERIENCE CARD -- */
 
 .exp-card .exp-card-content {
     height: 100%;
@@ -585,6 +585,10 @@ main {
     width: 40%;
     top: 6%;
     right: 6%;
+}
+
+.exp-card .exp-header-section .exp-header {
+    text-align: right;
 }
 
 .exp-card .timeline-section .timeline-bar {
@@ -717,7 +721,9 @@ main {
     top: 18%;
 }
 
-/* CONTACT CARD */
+/* #endregion */
+
+/* #region -- CONTACT CARD -- */
 
 .contact-card .contact-card-content {
     height: 100%;
@@ -727,6 +733,10 @@ main {
     position: absolute;
     width: 100%;
     top: 6%;
+}
+
+.contact-card .contact-card-content .contact-header-section .contact-header {
+    text-align: center;
 }
 
 .contact-text-section {
@@ -770,3 +780,5 @@ main {
     display: inline;
     height: var(--contact-email-copy-height);
 }
+
+/* #endregion */
