@@ -71,6 +71,10 @@ body::-webkit-scrollbar {
 
 /* #region -- Z-INDEXING -- */
 
+.card {
+    z-index: 1;
+}
+
 .progress-bar {
     z-index: 4;
 }
@@ -189,10 +193,8 @@ main {
     top: 50%;
     left: 50%;
     
-    width: var(--card-main);
-    height: calc(var(--card-main) * 0.5625);
-    z-index: 1;
-    /* overflow: hidden; */
+    width: var(--full-frame-width);
+    height: calc(var(--full-frame-width) * 0.5625);
     
     background-image: url("files/white-texture.jpeg");
     background-repeat: no-repeat;
@@ -201,7 +203,7 @@ main {
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2),
         0 0px 20px 0 rgba(0, 0, 0, 0.19) !important;
     
-    transform: translate(-50%, 80%) scale(1);
+    transform: translate(-50%, 80%) scale(1) rotate(0deg);
 }
 
 /* #endregion */
