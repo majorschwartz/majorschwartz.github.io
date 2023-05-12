@@ -54,7 +54,7 @@ body::-webkit-scrollbar {
 
 .bottom-space {
     color: inherit;
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
 }
 
 /* HELLO INTRO */
@@ -172,7 +172,7 @@ main {
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2),
         0 0px 20px 0 rgba(0, 0, 0, 0.19) !important;
     
-    transform: translate(-50%, 80%);
+    transform: translate(-50%, 80%) scale(1);
 }
 
 .intro-card,
@@ -212,12 +212,6 @@ main {
     --contact-email-fsize: calc(var(--card-main) * 0.05);
     --contact-email-margin: calc(var(--card-main) * 0.003);
     --contact-email-copy-height: calc(var(--card-main) * 0.035);
-}
-
-@property --card-main {
-    syntax: '<length>';
-    inherits: false;
-    initial-value: min(45vmin, 600px);
 }
 
 .zero-opacity {
