@@ -14,7 +14,6 @@
 
     /* CARD MAIN VARIABLE */
     --card-main: min(84vw, 120.75vh);
-    --card-scale: 
 
     /* ADDITIONAL STYLES */
     --underline-height: 0.5vw;
@@ -219,6 +218,64 @@ main {
 
 /* #endregion */
 
+/* #region -- ALL MENU STYLES */
+
+.intro-card .menu-section .menu-list,
+.bottom-menu .bottom-list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: end;
+    list-style-type: none;
+    font-family: var(--main-font);
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.intro-card .menu-section .menu-list .menu-item,
+.bottom-menu .bottom-list .row-item {
+    position: relative;
+}
+
+.intro-card .menu-section .menu-list .menu-item:hover,
+.about-card .like-link:hover,
+.exp-items .cta .contact-link-text:hover,
+.bottom-menu .bottom-list .row-item:hover {
+    cursor: pointer;
+}
+
+.intro-card .menu-section .menu-list .menu-item::after,
+.about-card .like-link::after,
+.exp-items .cta .contact-link-text::after,
+.bottom-menu .bottom-list .row-item::after {
+    content: "";
+    position: absolute;
+    bottom: -0.3vw;
+    left: 0px;
+    width: 100%;
+    height: var(--underline-height);
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.15s ease-out;
+}
+
+.intro-card .menu-section .menu-list .menu-item:hover::after,
+.about-card .like-link:hover::after,
+.exp-items .cta .contact-link-text:hover::after,
+.bottom-menu .bottom-list .row-item:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* #endregion */
+
 /* #region -- APPLIED STYLES -- */
 
 .hidden, .hidden-card {
@@ -276,60 +333,21 @@ main {
 /* #region -- BOTTOM MENU -- */
 
 .bottom-menu {
-    --card-main: 84vmin;
-    display: none;
-    
-    font-size: var(--intro-menu-fsize);
     position: absolute;
     z-index: 0;
+    right: 50%;
+
+    transform: translateX(50%);
     
     width: calc(var(--card-main) * 0.6);
-    bottom: calc(50% - (var(--card-main) * 0.27));
-    
-    right: 50%;
-    transform: translateX(50%);
+    bottom: calc(50% - (var(--card-main) * 0.25));
+
+    font-size: var(--intro-menu-fsize);
+    display: none;
 }
 
 .bottom-menu.shown {
     display: initial;
-}
-
-.bottom-menu .bottom-list {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: end;
-    list-style-type: none;
-    font-family: var(--main-font);
-    font-weight: 200;
-    margin: 0;
-    padding: 0;
-}
-
-.bottom-menu .bottom-list .row-item {
-    position: relative;
-    /* transform: translateY(160%); */
-}
-
-.bottom-menu .bottom-list .row-item:hover {
-    cursor: pointer;
-}
-
-.bottom-menu .bottom-list .row-item::after {
-    content: "";
-    position: absolute;
-    bottom: -0.3vw;
-    left: 0px;
-    width: 100%;
-    height: var(--underline-height);
-    background-color: black;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.15s ease-out;
-}
-
-.bottom-menu .bottom-list .row-item:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
 }
 
 /* #endregion */
@@ -356,49 +374,6 @@ main {
     bottom: 8%;
     right: 50%;
     transform: translateX(50%);
-}
-
-.intro-card .menu-section .menu-list {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: end;
-    list-style-type: none;
-    font-family: var(--main-font);
-    font-weight: 200;
-    margin: 0;
-    padding: 0;
-}
-
-.intro-card .menu-section .menu-list .menu-item {
-    position: relative;
-}
-
-.intro-card .menu-section .menu-list .menu-item:hover,
-.about-card .like-link:hover,
-.exp-items .cta .contact-link-text:hover {
-    cursor: pointer;
-}
-
-.intro-card .menu-section .menu-list .menu-item::after,
-.about-card .like-link::after,
-.exp-items .cta .contact-link-text::after {
-    content: "";
-    position: absolute;
-    bottom: -0.3vw;
-    left: 0px;
-    width: 100%;
-    height: var(--underline-height);
-    background-color: black;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.15s ease-out;
-}
-
-.intro-card .menu-section .menu-list .menu-item:hover::after,
-.about-card .like-link:hover::after,
-.exp-items .cta .contact-link-text:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
 }
 
 /* #endregion */
