@@ -14,6 +14,7 @@
 
     /* CARD MAIN VARIABLE */
     --card-main: min(84vw, 120.75vh);
+    --card-scale: 
 
     /* ADDITIONAL STYLES */
     --underline-height: 0.5vw;
@@ -118,12 +119,12 @@ body::-webkit-scrollbar {
 
 .hello-intro .bottom-space {
     flex-grow: 1.25;
-    /* background-color: var(--primary-color); */
+    background-color: var(--primary-color);
 }
 
 .hello-text,
 .progress-bar {
-    width: min(60vmin, 750px);
+    width: min(60vw, 86.25vh);
 }
 
 .hello-text {
