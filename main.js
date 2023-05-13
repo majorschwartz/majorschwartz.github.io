@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     timing_handler([
+        { func: define_vars, delay: 0, duration: 0 },
         { func: init_hide_cards, delay: 0, duration: 0 },
         { func: hello_sequence, delay: 700, duration: 1200 },
-        { func: reveal_card, delay: 2200, duration: 700 },
-        { func: recorrect_card, delay: 2700, duration: 1000 },
+        { func: reveal_card, delay: 2200, duration: 1700 },
         { func: bye_bye_hello, delay: 3700, duration: 0 },
     ]);
 });
@@ -16,11 +16,24 @@ function timing_handler(arr) {
     });
 }
 
-function hello_sequence(duration) {
-    helloText = document.querySelector(".hello-text");
-    progressBar = document.querySelector(".progress-bar .bar");
-    progressText = document.querySelector(".progress-bar .bar .text");
+function clog(func) {
+    console.log("-----\n\n" + func.toString() + "() end of function met.\n\n-----");
+}
 
+function define_vars() {
+    root          = document.querySelector(":root");
+    card          = document.querySelector(".card");
+    bmenu         = document.querySelector(".bottom-menu");
+    helloText     = document.querySelector(".hello-text");
+    helloSection  = document.querySelector(".hello-intro");
+    progress      = document.querySelector(".progress-bar");
+    progressBar   = document.querySelector(".progress-bar .bar");
+    progressText  = document.querySelector(".progress-bar .bar .text");
+
+    clog("define_vars");
+}
+
+function hello_sequence(duration) {
     helloText.classList.add("shown");
 
     setTimeout(function () {
@@ -45,110 +58,71 @@ function hello_sequence(duration) {
             progressText.classList.remove("shown");
         }, duration);
     }, 300);
+
+    clog("hello_sequence");
 }
 
 function reveal_card(duration) {
-    duration_in_seconds = (duration / 1000).toFixed(2);
-    card = document.querySelector(".card");
-    helloText = document.querySelector(".hello-text");
-    helloSection = document.querySelector(".hello-intro");
+    duration_in_seconds = ((duration - 1000) / 1000).toFixed(2);
+
     arr = Array.from({ length: 2 }, () =>
         parseFloat((Math.random() * (-5 - -10) - 10).toFixed(2))
     );
 
     card.style.transition = "transform 0s";
-    card.style.transform = "translate(-" + (50 + arr[0]).toString() + "%, 80%)";
+    card.style.transform = "translate(-" + (50 + arr[0]).toString() + "%, 80%) scale(0.5)";
 
     card.style.transition =
         "transform " +
         duration_in_seconds.toString() +
-        "s, rotate " +
-        duration_in_seconds.toString() +
         "s";
+    
     card.style.transform =
         "translate(-" +
         (50 + arr[0] * -1).toString() +
         "%, -" +
-        (150 + arr[0]).toString() +
-        "%)";
-    card.style.rotate = (arr[0] * 0.8).toString() + "deg";
+        (100 + arr[0]).toString() +
+        "%) scale(0.5) rotate(" +
+        (arr[0] * 0.8).toString() +
+        "deg";
 
     helloText.style.transition =
-        "opacity " + ((duration / 1000) * 0.33).toFixed(2).toString() + "s";
+        "opacity " + (((duration - 1000) / 1000) * 0.33).toFixed(2).toString() + "s";
     helloText.classList.add("zero-opacity");
+
+    setTimeout(function() {
+        recorrect_card(1000);
+    }, (duration - 1000) * 0.8);
+
+    clog("reveal_card");
 }
 
 function bye_bye_hello(duration) {
-    hello_wrap = document.querySelector(".hello-intro");
-    hello_wrap.style.display = "none";
+    helloSection.style.display = "none";
+
+    clog("bye_bye_hello");
 }
 
 function recorrect_card(duration) {
     duration_in_seconds = (duration / 1000).toFixed(2).toString();
-    card = document.querySelector(".card");
-    card_childs = document.querySelectorAll(".card *");
-    root = document.querySelector(":root");
-    helloSection = document.querySelector(".hello-intro");
-    progressBar = document.querySelector(".progress-bar");
 
     helloSection.classList.add("backset");
-    progressBar.classList.add("backset");
-    // card.classList.add("topset");
+    progress.classList.add("backset");
 
-    // card.style.transition = "all " + duration_in_seconds + "s";
-    // root.style.setProperty("--card-main", "70vw");
-    // set_card_main(duration, 70);
+    card.classList.add("topset");
 
-    card_childs.forEach((ele) => {
-        ele.style.transition = "--card-main " + duration_in_seconds + "s";
-        ele.classList.add("expanded");
-    });
     card.style.transition =
-        "--card-main " +
-        duration_in_seconds +
-        "s, rotate " +
-        duration_in_seconds +
-        "s, transform " +
+        "transform " +
         duration_in_seconds +
         "s";
-    card.classList.add("expanded");
-    card.style.rotate = "0deg";
-    card.style.transform = "translate(-50%, -50%)";
-    // set_card_main(duration, 84);
+    
+    card.classList.add("center-set");
 
     setTimeout(function () {
-        card_childs.forEach((ele) => {
-            ele.style.transition = "all 0s";
-        });
         card.style.transition = "all 0s";
     }, duration);
-}
 
-function set_card_main(duration, vw) {
-    card = document.querySelector(".card");
-    root = document.querySelector(":root");
-    main = document.querySelector("main");
-
-    // card.style.transition = "width 0s, height 0s";
-
-    current_main = card.getBoundingClientRect().width;
-    new_main = main.getBoundingClientRect().width * (vw / 100);
-
-    for (let i = 0; i < duration; i += 5) {
-        setTimeout(function () {
-            card.style.setProperty(
-                "--card-main",
-                (
-                    current_main +
-                    (i / duration) * (new_main - current_main)
-                ).toString() + "px"
-            );
-        }, i);
-    }
-
-    setTimeout(function () {
-        card.style.setProperty("--card-main", vw + "vw");
-    }, duration);
+    clog("recorrect_card");
 }
 
 function change_card(selected_card) {
@@ -209,7 +183,6 @@ function change_card(selected_card) {
 
         setTimeout(function () {
             // IF BOTTOM MENU ISNT SHOWN
-            bmenu = document.querySelector(".bottom-menu");
             if (!bmenu.classList.contains("shown")) {
                 show_bmenu();
             }
@@ -239,6 +212,8 @@ function change_card(selected_card) {
             }
         }, next_delay);
     }
+
+    clog("change_card");
 }
 
 function init_hide_cards(duration) {
@@ -274,10 +249,11 @@ function init_hide_cards(duration) {
             item_fade(ele, true, 0, 0);
         });
     });
+
+    clog("init_hide_cards");
 }
 
 function show_bmenu() {
-    bmenu = document.querySelector(".bottom-menu");
     bmenu_items = document.querySelectorAll(
         ".bottom-menu .bottom-list .row-item"
     );
@@ -287,9 +263,11 @@ function show_bmenu() {
     for (let i = 0; i < bmenu_items.length; i++) {
         bmenu_items[i].style.transition = "transform 0.5s";
         setTimeout(function () {
-            bmenu_items[i].style.transform = "translateY(200%)";
+            bmenu_items[i].style.transform = "translateY(220%)";
         }, (i + 1) * 100);
     }
+
+    clog("show_bmenu");
 }
 
 function item_fade(element, fade_out, delay, duration) {
@@ -319,4 +297,6 @@ function item_fade(element, fade_out, delay, duration) {
             } catch (e) {}
         }
     }, delay);
+
+    clog("item_fade");
 }

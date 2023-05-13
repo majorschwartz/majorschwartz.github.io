@@ -12,37 +12,40 @@
     --full-frame-width: 100vw;
     --full-frame-height: 100vh;
 
+    /* CARD MAIN VARIABLE */
+    --card-main: min(84vw, 120.75vh);
+
     /* ADDITIONAL STYLES */
     --underline-height: 0.5vw;
     --box-shadow-bloom: 1vw;
 
     /* INTRO CARD - CONTROL VARIABLES */
-    --card-header-fsize: 9vw;
-    --intro-menu-fsize: 4vw;
-
+    --card-header-fsize: calc(var(--card-main) * 0.09);
+    --intro-menu-fsize: calc(var(--card-main) * 0.04);
+    
     /* ABOUT CARD - CONTROL VARIABLES */
-    --about-uni-name-fsize: 3.2vw;
-    --about-uni-context-fsize: 3vw;
+    --about-uni-name-fsize: calc(var(--card-main) * 0.032);
+    --about-uni-context-fsize: calc(var(--card-main) * 0.03);
 
     /* LIKE CARD - CONTROL VARIABLES */
-    --like-quote-channel-fsize: 2.11vw;
-    --like-quote-attribution-fsize: 1.5vw;
-    --like-channel-icon-spacing: 1vw;
-    --like-channel-icon-dimension: 3vw;
+    --like-quote-channel-fsize: calc(var(--card-main) * 0.0211);
+    --like-quote-attribution-fsize: calc(var(--card-main) * 0.015);
+    --like-channel-icon-spacing: calc(var(--card-main) * 0.01);
+    --like-channel-icon-dimension: calc(var(--card-main) * 0.03);
 
     /* EXP CARD - CONTROL VARIABLES */
-    --exp-timeline-item-height: 7.5vw;
-    --exp-timeline-primary-fsize: 3.8vw;
-    --exp-timeline-secondary-fsize: 2.5vw;
-    --exp-timeline-triangle-dimension: 1.2vw;
-    --exp-timeline-sub-fsize: 1.8vw;
-    --exp-contact-link-margin: 2vw;
+    --exp-timeline-item-height: calc(var(--card-main) * 0.075);
+    --exp-timeline-primary-fsize: calc(var(--card-main) * 0.038);
+    --exp-timeline-secondary-fsize: calc(var(--card-main) * 0.025);
+    --exp-timeline-triangle-dimension: calc(var(--card-main) * 0.012);
+    --exp-timeline-sub-fsize: calc(var(--card-main) * 0.018);
+    --exp-contact-link-margin: calc(var(--card-main) * 0.02);
 
     /* CONTACT CARD - CONTROL VARIABLES */
-    --contact-text-fsize: 3.3vw;
-    --contact-email-fsize: 5vw;
-    --contact-email-margin: 0.3vw;
-    --contact-email-copy-height: 3.5vw;
+    --contact-text-fsize: calc(var(--card-main) * 0.033);
+    --contact-email-fsize: calc(var(--card-main) * 0.05);
+    --contact-email-margin: calc(var(--card-main) * 0.003);
+    --contact-email-copy-height: calc(var(--card-main) * 0.035);
 }
 
 /* #region -- HTML & BODY -- */
@@ -194,8 +197,8 @@ main {
     top: 50%;
     left: 50%;
     
-    width: var(--full-frame-width);
-    height: calc(var(--full-frame-width) * 0.5625);
+    width: var(--card-main);
+    height: calc(var(--card-main) * 0.5625);
 
     transform-origin: center;
     transform: translate(-50%, 80%) scale(0.5) rotate(0deg);
@@ -207,6 +210,10 @@ main {
 
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2),
         0 0px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.card.center-set {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg) !important;
 }
 
 /* #endregion */
