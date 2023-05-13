@@ -165,7 +165,6 @@ function change_card(selected_card) {
                 bfs(child);
             });
         }
-        current_card.classList.add("hidden-card");
         bfs(current_card);
 
         total.reverse();
@@ -187,7 +186,12 @@ function change_card(selected_card) {
                 show_bmenu();
             }
 
+            // HIDE PREVIOUS CARD
+            current_card.classList.add("hidden-card");
+
             // SHOWING NEXT CARD
+            selected_card.classList.remove("hidden-card");
+
             total = [];
             children = [];
             function bfs(ele) {
@@ -201,7 +205,6 @@ function change_card(selected_card) {
                     bfs(child);
                 });
             }
-            selected_card.classList.remove("hidden-card");
             bfs(selected_card);
 
             milli_between = 8;
