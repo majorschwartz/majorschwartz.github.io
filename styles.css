@@ -75,20 +75,7 @@ body::-webkit-scrollbar {
 
 /* #region -- BACKGROUND ANIMATION -- */
 
-.back-animation {
-    position: relative;
-    width: var(--full-frame-width);
-    height: var(--full-frame-height);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.back-animation .blob svg {
-    width: max(100vw, 100vh);
-    height: max(100vw, 100vh);
-}
 
 /* #endregion */
 
