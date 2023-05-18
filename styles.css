@@ -18,6 +18,7 @@
     /* ADDITIONAL STYLES */
     --underline-height: 0.5vw;
     --box-shadow-bloom: 1vw;
+    --box-shadow-hover-bloom: 2vw;
 
     /* INTRO CARD - CONTROL VARIABLES */
     --card-header-fsize: calc(var(--card-main) * 0.09);
@@ -70,6 +71,12 @@ body {
 body::-webkit-scrollbar {
     display: none;
 }
+
+/* #endregion */
+
+/* #region -- BACKGROUND ANIMATION -- */
+
+
 
 /* #endregion */
 
@@ -512,8 +519,17 @@ main {
     justify-content: space-between;
 }
 
+.like-book-section .book-row a img {
+    height: 100%;
+}
+
 .like-book-section .book-row .book {
+    transition: box-shadow 0.2s ease-out !important;
     box-shadow: 0px 0px var(--box-shadow-bloom) rgba(0, 0, 0, 0.5);
+}
+
+.like-book-section .book-row .book:hover {
+    box-shadow: 0px 0px var(--box-shadow-hover-bloom) rgba(47, 130, 255, 0.788);
 }
 
 .like-channel-section {
@@ -534,13 +550,35 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-sizing: border-box;
 }
 
-.channels .channel-item {
-    font-family: var(--main-font);
-    font-size: var(--like-quote-channel-fsize);
+.channels a {
+    position: relative;
     width: fit-content;
     margin-left: auto;
+    box-sizing: border-box;
+    font-family: var(--main-font);
+    color: black;
+    text-decoration: none;
+    font-size: var(--like-quote-channel-fsize);
+    
+}
+
+.channels .channel-item:hover::after {
+    position: absolute;
+    content: "";
+    width: calc(100% + 5px);
+    height: 100%;
+
+    padding: 5px;
+    
+    top: -5px;
+    left: -10px;
+    
+    /* border: 1px solid black; */
+    border-radius: max(100vw, 100vh);
+    box-shadow: inset 0px 0px var(--box-shadow-bloom) rgba(0, 0, 0, 0.5);
 }
 
 .channels .channel-item .channel-name {
