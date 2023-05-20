@@ -17,8 +17,8 @@
 
     /* ADDITIONAL STYLES */
     --underline-height: 0.5vw;
-    --box-shadow-bloom: 1vw;
-    --box-shadow-hover-bloom: 2vw;
+    --box-shadow-bloom: calc(var(--card-main) * 0.01);
+    --box-shadow-hover-bloom: calc(var(--card-main) * 0.025);
 
     /* INTRO CARD - CONTROL VARIABLES */
     --card-header-fsize: calc(var(--card-main) * 0.09);
@@ -33,6 +33,9 @@
     --like-quote-attribution-fsize: calc(var(--card-main) * 0.015);
     --like-channel-icon-spacing: calc(var(--card-main) * 0.01);
     --like-channel-icon-dimension: calc(var(--card-main) * 0.03);
+    --like-channel-after-width: calc(var(--card-main) * 0.02);
+    --like-channel-after-padding: calc(var(--card-main) * 0.008);
+    
 
     /* EXP CARD - CONTROL VARIABLES */
     --exp-timeline-item-height: calc(var(--card-main) * 0.075);
@@ -519,8 +522,19 @@ main {
     justify-content: space-between;
 }
 
+/* .like-book-section .book-row a img {
+    max-width: 85%;
+    height: auto;
+} */
+
+.like-book-section .book-row a {
+    flex: 1;
+}
+
 .like-book-section .book-row a img {
-    height: 100%;
+    flex: 1;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .like-book-section .book-row .book {
@@ -568,13 +582,13 @@ main {
 .channels .channel-item:hover::after {
     position: absolute;
     content: "";
-    width: calc(100% + 5px);
+    width: calc(100% + var(--like-channel-after-width));
     height: 100%;
 
-    padding: 5px;
+    padding: var(--like-channel-after-padding);
     
-    top: -5px;
-    left: -10px;
+    top: calc(-1 * var(--like-channel-after-padding));
+    left: calc(-2.5 * var(--like-channel-after-padding));
     
     /* border: 1px solid black; */
     border-radius: max(100vw, 100vh);
