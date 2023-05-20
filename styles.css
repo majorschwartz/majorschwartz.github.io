@@ -884,13 +884,13 @@ main {
 }
 
 .copy-interacts .keys {
-    padding: calc(var(--card-main) * 0.008) calc(var(--card-main) * 0.018);
+    padding: calc(var(--card-main) * 0.008) calc(var(--card-main) * 0.025);
     border-radius: max(100vw, 100vh);
     box-shadow: 0px 0px var(--box-shadow-bloom) rgba(0, 0, 0, 0.5);
 
     font-family: var(--main-font);
     font-size: var(--contact-text-fsize);
-    /* font-weight: bold; */
+    font-weight: bold;
 }
 
 .copy-interacts .keys.pressed {

@@ -352,6 +352,9 @@ function copy_email() {
         copyAni.classList.add("click");
         cursorWrap.classList.add("click");
         setTimeout(function() {
+            document.querySelector("#cursor").src = "/files/cursors/pointer.png";
+        }, 600);
+        setTimeout(function() {
             click_and_close();
         }, 1000);
     }, 1000 + (emailText.length * 27));
@@ -365,7 +368,7 @@ function click_and_close() {
 
     setTimeout(function() {
         copyAni.classList.add("zero-opacity");
-    })
+    });
 
     setTimeout(function() {
         document.querySelector(".keys").classList.add("zero-opacity");
@@ -380,6 +383,7 @@ function click_and_close() {
 
     setTimeout(function() {
         document.querySelector(".keys").classList.remove("pressed");
+        document.querySelector("#cursor").src = "/files/cursors/default.png";
         copyAni.classList.remove("active");
     }, 800);
 }
