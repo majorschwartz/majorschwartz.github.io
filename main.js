@@ -303,3 +303,8 @@ function item_fade(element, fade_out, delay, duration) {
 
     clog("item_fade");
 }
+
+function copy_email() {
+    
+    navigator.clipboard.writeText("me@majorschwartz.com");
+}

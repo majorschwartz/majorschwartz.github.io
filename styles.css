@@ -330,7 +330,8 @@ main {
 .about-card .about-portrait,
 .like-book-section .book-row .book,
 .exp-image,
-.channels .channel-item .channel-icon-wrap .channel-icon {
+.channels .channel-item .channel-icon-wrap .channel-icon,
+.contact-email-section .contact-email-wrapper .copy-email img {
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -819,6 +820,10 @@ main {
     vertical-align: middle;
     display: inline;
     height: var(--contact-email-copy-height);
+}
+
+.contact-email-section .contact-email-wrapper .copy-email img:hover {
+    cursor: pointer;
 }
 
 /* #endregion */
