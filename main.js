@@ -29,6 +29,10 @@ function define_vars() {
     progress      = document.querySelector(".progress-bar");
     progressBar   = document.querySelector(".progress-bar .bar");
     progressText  = document.querySelector(".progress-bar .bar .text");
+    email         = document.querySelector(".contact-email");
+    copyAni       = document.querySelector(".copy-ani");
+    cursorWrap    = document.querySelector(".copy-ani .cursor-wrapper");
+
 
     clog("define_vars");
 }
@@ -305,6 +309,37 @@ function item_fade(element, fade_out, delay, duration) {
 }
 
 function copy_email() {
-    
-    navigator.clipboard.writeText("me@majorschwartz.com");
+    emailText = email.innerHTML.trim();
+    console.log(emailText);
+
+    copyAni.classList.remove("hidden");
+    navigator.clipboard.writeText(emailText);
+
+    setTimeout(function() {
+        copyAni.classList.add("swing-copy");
+        cursorWrap.classList.add("swing-copy");
+    }, 300);
+
+    setTimeout(function() {
+        document.querySelector("#cursor").src = "/files/cursors/ibeam.png";
+        for (let i = 0; i <= emailText.length; i++) {
+            setTimeout(function() {
+                if (window.getSelection) {
+                    selection = window.getSelection();
+                    range = document.createRange();
+
+                    range.setStart(email.firstChild, 0);
+                    range.setEnd(email.firstChild, i);
+
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                }
+            }, i * 27);
+        }
+    }, 700);
+
+    setTimeout(function() {
+        document.querySelector("#cursor").src = "/files/cursors/default.png";
+        document.querySelector(".keys").classList.remove("zero-opacity");
+    }, 700 + (emailText.length * 27))
 }
