@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     timing_handler([
         { func: define_vars, delay: 0, duration: 0 },
+        { func: add_event_listeners, delay: 0, duration: 0 },
         { func: init_hide_cards, delay: 0, duration: 0 },
         { func: hello_sequence, delay: 700, duration: 1200 },
         { func: reveal_card, delay: 2200, duration: 1700 },
@@ -17,24 +18,48 @@ function timing_handler(arr) {
 }
 
 function clog(func) {
-    console.log("-----\n\n" + func.toString() + "() end of function met.\n\n-----");
+    console.log(
+        "-----\n\n" + func.toString() + "() end of function met.\n\n-----"
+    );
 }
 
 function define_vars() {
-    root          = document.querySelector(":root");
-    card          = document.querySelector(".card");
-    bmenu         = document.querySelector(".bottom-menu");
-    helloText     = document.querySelector(".hello-text");
-    helloSection  = document.querySelector(".hello-intro");
-    progress      = document.querySelector(".progress-bar");
-    progressBar   = document.querySelector(".progress-bar .bar");
-    progressText  = document.querySelector(".progress-bar .bar .text");
-    email         = document.querySelector(".contact-email");
-    copyAni       = document.querySelector(".copy-ani");
-    cursorWrap    = document.querySelector(".copy-ani .cursor-wrapper");
-
+    root = document.querySelector(":root");
+    card = document.querySelector(".card");
+    bmenu = document.querySelector(".bottom-menu");
+    helloText = document.querySelector(".hello-text");
+    helloSection = document.querySelector(".hello-intro");
+    progress = document.querySelector(".progress-bar");
+    progressBar = document.querySelector(".progress-bar .bar");
+    progressText = document.querySelector(".progress-bar .bar .text");
+    email = document.querySelector(".contact-email");
+    copyAni = document.querySelector(".copy-ani");
+    cursorWrap = document.querySelector(".copy-ani .cursor-wrapper");
 
     clog("define_vars");
+}
+
+function add_event_listeners() {
+    email_btn = document.querySelector("#copy-contact-email");
+    email_btn.addEventListener("click", function (event) {
+        email_text = document.querySelector(".contact-email");
+        try {
+            navigator.clipboard.writeText("me@majorschwartz.com");
+        } catch (e) { console.log("clipboard.writeText() failure, trying document.execCommand().") }
+        range = document.createRange();
+        range.selectNode(email_text);
+        window.getSelection().addRange(range);
+
+        try {
+            success = document.execCommand("copy");
+            msg = success ? "successful" : "unsuccessful";
+            console.log("Copy " + msg + ".");
+        } catch (err) {
+            console.log("Copy failure.");
+        }
+
+        window.getSelection().removeAllRanges();
+    });
 }
 
 function hello_sequence(duration) {
@@ -74,13 +99,11 @@ function reveal_card(duration) {
     );
 
     card.style.transition = "transform 0s";
-    card.style.transform = "translate(-" + (50 + arr[0]).toString() + "%, 80%) scale(0.5)";
+    card.style.transform =
+        "translate(-" + (50 + arr[0]).toString() + "%, 80%) scale(0.5)";
 
-    card.style.transition =
-        "transform " +
-        duration_in_seconds.toString() +
-        "s";
-    
+    card.style.transition = "transform " + duration_in_seconds.toString() + "s";
+
     card.style.transform =
         "translate(-" +
         (50 + arr[0] * -1).toString() +
@@ -91,10 +114,12 @@ function reveal_card(duration) {
         "deg";
 
     helloText.style.transition =
-        "opacity " + (((duration - 1000) / 1000) * 0.33).toFixed(2).toString() + "s";
+        "opacity " +
+        (((duration - 1000) / 1000) * 0.33).toFixed(2).toString() +
+        "s";
     helloText.classList.add("zero-opacity");
 
-    setTimeout(function() {
+    setTimeout(function () {
         recorrect_card(1000);
     }, (duration - 1000) * 0.8);
 
@@ -115,11 +140,8 @@ function recorrect_card(duration) {
 
     card.classList.add("topset");
 
-    card.style.transition =
-        "transform " +
-        duration_in_seconds +
-        "s";
-    
+    card.style.transition = "transform " + duration_in_seconds + "s";
+
     card.classList.add("center-set");
 
     setTimeout(function () {
@@ -148,8 +170,6 @@ function change_card(selected_card) {
             current_card = card_ele;
         }
     });
-    console.log(current_card);
-    console.log(selected_card);
 
     if (!(current_card == selected_card)) {
         current_card = document.querySelector("." + current_card);
@@ -172,7 +192,6 @@ function change_card(selected_card) {
         bfs(current_card);
 
         total.reverse();
-        console.log(total);
 
         milli_between = 8;
         sec_transition = 0.5;
@@ -315,62 +334,89 @@ function copy_email() {
 
     copyAni.classList.add("active");
 
-    emailText = email.innerHTML.trim();
+    emailText = "me@majorschwartz.com";
 
     refresh_ele(document.querySelector("#poof"));
     copyAni.classList.remove("hidden");
 
-    setTimeout(function() {
+    setTimeout(function () {
         copyAni.classList.add("swing-copy");
         cursorWrap.classList.add("swing-copy");
     }, 300);
 
-    setTimeout(function() {
+    setTimeout(function () {
         document.querySelector("#cursor").src = "/files/cursors/ibeam.png";
-        for (let i = 0; i <= emailText.length; i++) {
-            setTimeout(function() {
-                if (window.getSelection) {
-                    selection = window.getSelection();
-                    range = document.createRange();
 
-                    range.setStart(email.firstChild, 0);
-                    range.setEnd(email.firstChild, i);
+        // for (let i = 0; i <= emailText.length; i++) {
+        //     setTimeout(function() {
+        //         if (window.getSelection) {
+        //             selection = window.getSelection();
+        //             range = document.createRange();
 
-                    selection.removeAllRanges();
-                    selection.addRange(range);
-                }
-            }, i * 27);
-        }
+        //             range.setStart(email.firstChild, 0);
+        //             range.setEnd(email.firstChild, i);
+
+        //             selection.removeAllRanges();
+        //             selection.addRange(range);
+        //         }
+        //     }, i * 27);
+        // }
+
+        select_text();
     }, 700);
 
-    setTimeout(function() {
+    setTimeout(function () {
         document.querySelector("#cursor").src = "/files/cursors/default.png";
-    }, 700 +(emailText.length * 27));
+    }, 700 + emailText.length * 27);
 
-    setTimeout(function() {
+    setTimeout(function () {
         document.querySelector(".keys").classList.remove("zero-opacity");
         copyAni.classList.add("click");
         cursorWrap.classList.add("click");
-        setTimeout(function() {
-            document.querySelector("#cursor").src = "/files/cursors/pointer.png";
+        setTimeout(function () {
+            document.querySelector("#cursor").src =
+                "/files/cursors/pointer.png";
         }, 600);
-        setTimeout(function() {
+        setTimeout(function () {
             click_and_close();
         }, 1000);
-    }, 1000 + (emailText.length * 27));
+    }, 1000 + emailText.length * 24);
+}
+
+function select_text() {
+    ele = document.querySelector(".contact-email");
+    text = ele.innerText || ele.textContent;
+
+    range = document.createRange();
+    selection = window.getSelection();
+    range.selectNodeContents(ele);
+
+    let currentIndex = 0;
+
+    function selectNextLetter() {
+        if (currentIndex < text.length) {
+            range.setStart(ele.firstChild, 0);
+            range.setEnd(ele.firstChild, currentIndex + 1);
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            currentIndex++;
+            setTimeout(selectNextLetter, 22);
+        }
+    }
+    selectNextLetter();
 }
 
 function click_and_close() {
     document.querySelector(".keys").classList.add("pressed");
-    navigator.clipboard.writeText(emailText);
 
     window.getSelection().removeAllRanges();
 
-    setTimeout(function() {
+    setTimeout(function () {
         copyAni.classList.add("zero-opacity");
     });
 
-    setTimeout(function() {
+    setTimeout(function () {
         document.querySelector(".keys").classList.add("zero-opacity");
         copyAni.classList.remove("click");
         cursorWrap.classList.remove("click");
@@ -381,7 +427,7 @@ function click_and_close() {
         copyAni.classList.remove("zero-opacity");
     }, 600);
 
-    setTimeout(function() {
+    setTimeout(function () {
         document.querySelector(".keys").classList.remove("pressed");
         document.querySelector("#cursor").src = "/files/cursors/default.png";
         copyAni.classList.remove("active");
@@ -389,5 +435,5 @@ function click_and_close() {
 }
 
 function refresh_ele(ele) {
-    return ele.src = ele.src.split('?')[0]+'?='+(+new Date());
+    return (ele.src = ele.src.split("?")[0] + "?=" + +new Date());
 }
