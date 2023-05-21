@@ -828,6 +828,28 @@ main {
     cursor: pointer;
 }
 
+/* .contact-email {
+    background: none;
+    border: none;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: var(--main-font);
+    font-size: var(--contact-email-fsize);
+
+    width: calc(var(--card-main) * 0.47);
+
+    color: black;
+} */
+
+/* .contact-email:focus, .contact-email:active, .contact-email:target,
+.contact-email:focus-visible, .contact-email:focus-within {
+    border: none;
+    margin: 0;
+    padding: 0;
+} */
+
 .copy-ani {
     z-index: 3;
     position: absolute;
