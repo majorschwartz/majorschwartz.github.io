@@ -36,6 +36,8 @@ function define_vars() {
     copyAni = document.querySelector(".copy-ani");
     cursorWrap = document.querySelector(".copy-ani .cursor-wrapper");
 
+    card_changing = false;
+
     clog("define_vars");
 }
 
@@ -152,6 +154,12 @@ function recorrect_card(duration) {
 }
 
 function change_card(selected_card) {
+    if (card_changing) {
+        return;
+    }
+
+    card_changing = true;
+
     cards = [
         "intro-card",
         "about-card",
@@ -236,6 +244,10 @@ function change_card(selected_card) {
                 ele = total[i];
                 item_fade(ele, false, i * milli_between, sec_transition);
             }
+        }, next_delay);
+
+        setTimeout(function () {
+            card_changing = false;
         }, next_delay);
     }
 
