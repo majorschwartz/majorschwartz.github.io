@@ -579,10 +579,9 @@ main {
     color: black;
     text-decoration: none;
     font-size: var(--like-quote-channel-fsize);
-    
 }
 
-.channels .channel-item:hover::after {
+.channels .channel-item:after {
     position: absolute;
     content: "";
     width: calc(100% + var(--like-channel-after-width));
@@ -595,6 +594,11 @@ main {
     
     /* border: 1px solid black; */
     border-radius: max(100vw, 100vh);
+    transition: box-shadow 0.2s ease-out !important;
+    box-shadow: inset 0px 0px var(--box-shadow-bloom) rgba(0, 0, 0, 0.0);
+}
+
+.channels .channel-item:hover:after {
     box-shadow: inset 0px 0px var(--box-shadow-bloom) rgba(0, 0, 0, 0.5);
 }
 
