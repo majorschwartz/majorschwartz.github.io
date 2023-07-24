@@ -18,9 +18,13 @@ function timing_handler(arr) {
 }
 
 function clog(func) {
-    console.log(
-        "-----\n\n" + func.toString() + "() end of function met.\n\n-----"
-    );
+    logging = false;
+
+    if (logging) {
+        console.log(
+            "-----\n\n" + func.toString() + "() end of function met.\n\n-----"
+        );
+    }
 }
 
 function define_vars() {
@@ -47,7 +51,11 @@ function add_event_listeners() {
         email_text = document.querySelector(".contact-email");
         try {
             navigator.clipboard.writeText("me@majorschwartz.com");
-        } catch (e) { console.log("clipboard.writeText() failure, trying document.execCommand().") }
+        } catch (e) {
+            console.log(
+                "clipboard.writeText() failure, trying document.execCommand()."
+            );
+        }
         range = document.createRange();
         range.selectNode(email_text);
         window.getSelection().addRange(range);
@@ -157,7 +165,6 @@ function change_card(selected_card) {
     if (card_changing) {
         return;
     }
-
     card_changing = true;
     selected_backup = selected_card;
 
@@ -202,7 +209,7 @@ function change_card(selected_card) {
 
         total.reverse();
 
-        milli_between = 8;
+        milli_between = 5;
         sec_transition = 0.5;
         for (let i = 0; i < total.length; i++) {
             ele = total[i];
@@ -225,8 +232,8 @@ function change_card(selected_card) {
             selected_card.classList.remove("hidden-card");
 
             // CHANGE BACKGROUND COLOR
-            console.log(selected_backup);
-            document.body.style.backgroundColor = "var(--" + selected_backup + "-bg-color)";
+            document.body.style.backgroundColor =
+                "var(--" + selected_backup + "-bg-color)";
 
             total = [];
             children = [];
@@ -254,6 +261,8 @@ function change_card(selected_card) {
         setTimeout(function () {
             card_changing = false;
         }, next_delay);
+    } else {
+        card_changing = false;
     }
 
     clog("change_card");
@@ -398,6 +407,8 @@ function copy_email() {
             click_and_close();
         }, 1000);
     }, 1000 + emailText.length * 24);
+
+    clog("copy_email");
 }
 
 function select_text() {
@@ -422,6 +433,8 @@ function select_text() {
         }
     }
     selectNextLetter();
+
+    clog("select_text");
 }
 
 function click_and_close() {
@@ -449,8 +462,11 @@ function click_and_close() {
         document.querySelector("#cursor").src = "/files/cursors/default.png";
         copyAni.classList.remove("active");
     }, 800);
+
+    clog("click_and_close");
 }
 
 function refresh_ele(ele) {
+    clog("refresh_ele");
     return (ele.src = ele.src.split("?")[0] + "?=" + +new Date());
 }
