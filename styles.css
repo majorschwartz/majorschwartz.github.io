@@ -4,6 +4,13 @@
     --secondary-color: #242424;
     --test-bg-color: rgba(255, 192, 98, 0.5);
 
+    /* PAGE BACKGROUND COLORS */
+    --intro-card-bg-color: rgba(245, 245, 245, 0.2);
+    --about-card-bg-color: rgba(175, 191, 248, 0.2);
+    --like-card-bg-color: rgba(247, 228, 161, 0.2);
+    --exp-card-bg-color: rgba(203, 250, 217, 0.2);
+    --contact-card-bg-color: rgba(235, 185, 192, 0.2);
+
     /* MAIN FONTS */
     --loading-font: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --main-font: "EB Garamond";
@@ -58,6 +65,7 @@ html,
 body {
     margin: 0;
     padding: 0;
+    transition: background-color 1s ease-out;
     background-color: var(--primary-color);
     cursor: default;
 }
