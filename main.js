@@ -159,6 +159,7 @@ function change_card(selected_card) {
     }
 
     card_changing = true;
+    selected_backup = selected_card;
 
     cards = [
         "intro-card",
@@ -222,6 +223,10 @@ function change_card(selected_card) {
 
             // SHOWING NEXT CARD
             selected_card.classList.remove("hidden-card");
+
+            // CHANGE BACKGROUND COLOR
+            console.log(selected_backup);
+            document.body.style.backgroundColor = "var(--" + selected_backup + "-bg-color)";
 
             total = [];
             children = [];
