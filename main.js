@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { func: define_vars, delay: 0, duration: 0 },
         { func: add_event_listeners, delay: 0, duration: 0 },
         { func: init_hide_cards, delay: 0, duration: 0 },
+        { func: info_updates, delay: 100, duration: 0 },
         { func: hello_sequence, delay: 700, duration: 1200 },
         { func: reveal_card, delay: 2200, duration: 1700 },
         { func: bye_bye_hello, delay: 3700, duration: 0 },
@@ -37,6 +38,8 @@ function define_vars() {
     progressBar = document.querySelector(".progress-bar .bar");
     progressText = document.querySelector(".progress-bar .bar .text");
     email = document.querySelector(".contact-email");
+    workYear = document.querySelector("div.time-labels > div:nth-child(5)");
+    workMonth = document.querySelector("div.time-labels > div:nth-child(6)");
     copyAni = document.querySelector(".copy-ani");
     cursorWrap = document.querySelector(".copy-ani .cursor-wrapper");
 
@@ -303,6 +306,13 @@ function init_hide_cards(duration) {
     });
 
     clog("init_hide_cards");
+}
+
+function info_updates() {
+    const monthNames = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    var curDate = new Date();
+    workYear.innerText = curDate.getFullYear();
+    workMonth.innerText = monthNames[curDate.getMonth()];
 }
 
 function show_bmenu() {
