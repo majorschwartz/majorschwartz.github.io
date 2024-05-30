@@ -2,406 +2,412 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="description"
+            content="A thrown together and occassionally updated website for Major Schwartz"
+        />
+        <meta name="keywords" content="Major Schwartz, Major, Schwartz" />
+        <meta name="author" content="Major Schwartz" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
             rel="stylesheet"
         />
-        <link
-            href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
-            rel="stylesheet"
-        />
-
-        <link rel="icon" type="image/x-icon" href="files/favicon.png" />
-        <link rel="stylesheet" href="styles.css" />
-        <link href="files/font-awesome/css/font-awesome.css" rel="stylesheet" />
-        <script src="main.js"></script>
-
-        <title>Hello, I'm Major Schwartz</title>
+        <link rel="icon" type="image/x-icon" href="favicon.png" />
+        <title>Major Schwartz</title>
     </head>
+    <style>
+        body {
+            font-family: "Crimson Text", "Times New Roman", Times, serif;
+            background-color: #fff1e5;
+            color: #33302e;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        img {
+            background-color: #332c28c9;
+            border-radius: 0.25rem;
+        }
+        nav {
+            display: flex;
+            gap: 1rem;
+            margin: 0.5rem 0;
+            flex-wrap: wrap;
+        }
+        nav a {
+            word-wrap: none;
+        }
+        a {
+            color: #332c28;
+            text-decoration: underline;
+        }
+        body > div {
+            min-height: calc(100vh - 1rem);
+            width: 90%;
+            max-width: 800px;
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #332c28;
+            margin: 1rem 0;
+        }
+        main {
+            flex-grow: 1;
+        }
+        details > *:not(summary) {
+            margin-left: 2rem;
+        }
+        h1 {
+            color: #332c28;
+            font-size: 2.75rem;
+            margin: 0.5rem 0;
+        }
+        h2 {
+            color: #332c28;
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+        details {
+            margin: 1.75rem 0;
+        }
+        summary {
+            cursor: pointer;
+        }
+        dt,
+        dd,
+        p,
+        summary,
+        nav {
+            font-size: 1.25rem;
+        }
+        footer {
+            margin: 1rem 0;
+            padding: 0.5rem;
+            text-align: center;
+            flex-shrink: 0;
+        }
+    </style>
     <body>
-        <div class="hello-intro">
-            <div class="top-space"></div>
-
-            <h3 class="hello-text">Hello</h3>
-            <div class="progress-bar">
-                <div class="bar">
-                    <div class="text">0%</div>
-                </div>
-            </div>
-
-            <div class="bottom-space"></div>
+        <div>
+            <header>
+                <img
+                    src="about-portrait.png"
+                    alt="Image of Major Schwartz"
+                    loading="lazy"
+                    height="100"
+                    width="100"
+                />
+                <h1>Major Schwartz's Website</h1>
+                <nav>
+                    <a href="https://github.com/majorschwartz" target="_blank"
+                        >Github</a
+                    >
+                    <a
+                        href="https://www.linkedin.com/in/majorschwartz/"
+                        target="_blank"
+                        >LinkedIn</a
+                    >
+                    <a href="mailto:me@majorschwartz.com" target="_blank"
+                        >Personal Email</a
+                    >
+                    <a href="mailto:major-schwartz@utc.edu" target="_blank"
+                        >University Email</a
+                    >
+                </nav>
+                <p>Hello! This is my website!</p>
+                <p>
+                    <a href="https://majorschwartz.com/past" target="_blank"
+                        >The past layout</a
+                    >
+                    of this website was very stylish, but as of recently, I
+                    wanted a more simple look. Enjoy!
+                </p>
+            </header>
+            <hr />
+            <main>
+                <section id="school">
+                    <h2>Where I Go To School and What I'm Learning</h2>
+                    <details>
+                        <summary>University Information</summary>
+                        <dl>
+                            <dt>School</dt>
+                            <dd>University of Tennessee at Chattanooga</dd>
+                            <dt>Location</dt>
+                            <dd>Chattanooga, Tennessee</dd>
+                            <dt>Major</dt>
+                            <dd>B.S. Computer Science, Data Science</dd>
+                            <dt>Minor</dt>
+                            <dd>Honors</dd>
+                            <dt>GPA</dt>
+                            <dd>3.95</dd>
+                            <dt>Graduation</dt>
+                            <dd>December 2024</dd>
+                        </dl>
+                        <p>
+                            Chattanooga is a wonderful city and extremely
+                            walkable. It's also growing quickly. From 2010 to
+                            2024,
+                            <a
+                                href="https://www.macrotrends.net/global-metrics/cities/22955/chattanooga/population#:~:text=Chart%20and%20table%20of%20population,a%200.48%25%20increase%20from%202020."
+                                >it's grown in population by 13.35%</a
+                            >. It's been a lovely place to live, and remains so!
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Certs, Libraries, and What I'm Learning Now</summary>
+                        <dl>
+                            <dt>Certifications</dt>
+                            <dd>
+                                <b>Oracle OCI</b> - Certified Foundations
+                                Associate
+                            </dd>
+                            <dd>
+                                <b>MITx MicroMasters</b> - Data Analysis:
+                                Statistical Modeling and Computation in
+                                Applications Certificate
+                            </dd>
+                            <dt>Libraries</dt>
+                            <dd>
+                                NumPy, Pandas, Scikit-learn, PyTorch,
+                                Matplotlib, BeautifulSoup
+                            </dd>
+                        </dl>
+                        <p>
+                            I'm currently researching large language models.
+                            This includes token generation, model training,
+                            architecture, and application. There is so much
+                            potential with this emerging technology, and I'll
+                            continue to build with it! Right now I'm focusing on
+                            how to use LLMs for education. My current project is
+                            LearningAbout, and you can read more about it under
+                            the
+                            <a href="#projects"
+                                >Projects I've Done or Am Doing</a
+                            >
+                            section.
+                        </p>
+                    </details>
+                </section>
+                <section id="work">
+                    <h2>Who I've Been at Places I've Worked (or Working At)</h2>
+                    <details>
+                        <summary>
+                            Currently a Software Engineer Intern at Tennessee
+                            Valley Authority
+                        </summary>
+                        <details>
+                            <summary>Employment Information</summary>
+                            <dl>
+                                <dt>Company</dt>
+                                <dd>Tennessee Valley Authority</dd>
+                                <dt>Location</dt>
+                                <dd>Chattanooga, Tennessee</dd>
+                                <dt>Position</dt>
+                                <dd>Software Engineer Intern</dd>
+                                <dt>Start Date</dt>
+                                <dd>January 2024</dd>
+                                <dt>Status</dt>
+                                <dd>Loving it</dd>
+                            </dl>
+                        </details>
+                        <p>
+                            My internship at TVA has been excellent so far. I've
+                            worked in a small team of developers, and we've been
+                            working on shipping an integration within the
+                            company. I've been able to help with debugging
+                            issues, writing unit tests, and getting a thorough
+                            idea of how enterprise workflows, well... work.
+                        </p>
+                        <p>
+                            For code specific development, I've increased my
+                            knowledge of large scale Java applications, from
+                            cron jobs to database comparison and manipulation.
+                            Also, my JavaScript understanding has been
+                            particularly helpful in determining frontend/backend
+                            communication errors and workarounds.
+                        </p>
+                    </details>
+                    <details>
+                        <summary>
+                            Previously a Web Editor and Research Assistant at
+                            UTC (my university)
+                        </summary>
+                        <details>
+                            <summary>Employment Information</summary>
+                            <dl>
+                                <dt>Company</dt>
+                                <dd>University of Tennessee at Chattanooga</dd>
+                                <dt>Location</dt>
+                                <dd>Chattanooga, Tennessee</dd>
+                                <dt>Position</dt>
+                                <dd>Web Editor and Research Assistant</dd>
+                                <dt>Web Editor Dates</dt>
+                                <dd>May 2022 - December 2023</dd>
+                                <dt>Research Assistant Dates</dt>
+                                <dd>April 2022 - April 2023</dd>
+                            </dl>
+                        </details>
+                        <p>
+                            Working at UTC was a great experience. Being a Web
+                            Editor for the university allowed me to grow my
+                            coding ability while managing the the content and
+                            images used on the university's main website,
+                            <a href="https://utc.edu" target="_blank">utc.edu</a
+                            >. I used HTML, CSS, and JavaScript for text styling
+                            and functionality, and PHP and Node.js in web
+                            projects.
+                        </p>
+                        <p>
+                            For research work, I studied under
+                            <a
+                                href="https://orcid.org/0000-0003-4070-4101"
+                                target="_blank"
+                                >Xiunan Wang</a
+                            >. The research paper focused on providing
+                            analytical comparisons between pandemic mobility
+                            data models. This paper involved using Python for
+                            data manipulation and visualization. Many libraries
+                            were involved in the analysis and graphing of the
+                            data, such as scikit-learn, pandas, and matplotlib.
+                        </p>
+                    </details>
+                </section>
+                <section id="projects">
+                    <h2>Projects I've Done or am Doing</h2>
+                    <details>
+                        <summary>LearningAbout - <em>Current</em></summary>
+                        <p>
+                            LLMs know a lot. They know so much that they can
+                            generate text about nearly any topic. And as they
+                            continue to increase their knowledge and
+                            capabilities, they only become better and better
+                            teachers.
+                        </p>
+                        <p>
+                            LearningAbout is a platform where people can enter
+                            the subject they'd like to learn about, and a
+                            roadmap of the subject is generated with topics and
+                            subtopics. Additionally, a quiz is provided at the
+                            end of each topic to test the user's knowledge.
+                        </p>
+                        <p>
+                            Current Tech Stack: <em><b>Flask</b></em
+                            >, <em><b>React</b></em
+                            >, <em><b>MongoDB</b></em
+                            >, <em><b>OpenAI</b></em
+                            >, <em><b>Google Auth</b></em
+                            >.
+                        </p>
+                        <p>
+                            The link to the application will be provided once
+                            the MVP is complete.
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Gupiteer</summary>
+                        <p>
+                            Gupiteer is a project that centralizes LLMs. Instead
+                            of relying on multiple websites to find the LLM
+                            you'd like to use, Gupiteer provides a single
+                            location to switch between LLMs. It follows much of
+                            the same design as ChatGPT, including popular
+                            features such as conversation history. Additionally,
+                            the user only pays for usage, rather than a
+                            subscription fee. By allowing the user to enter
+                            their own API keys, the user only pays per request.
+                        </p>
+                        <p>
+                            Tech Stack: <em><b>Python/Flask</b></em> for the
+                            serverside, <em><b>React</b></em> for the frontend,
+                            and <em><b>OpenAI</b></em> for their wonderful API.
+                        </p>
+                        <p>
+                            Gupiteer's Github:
+                            <a
+                                href="https://github.com/majorschwartz/gupiteer"
+                                target="_blank"
+                                >Github</a
+                            >
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Previous Website</summary>
+                        <p>
+                            For three weeks (<a
+                                href="https://github.com/majorschwartz/majorschwartz.github.io/graphs/contributors"
+                                target="_blank"
+                                >git history</a
+                            >), starting on the last week of April 2023 and
+                            lasting a bit over halfway into May, I took it upon
+                            myself to make a fully functional, tremendously
+                            transitional, and rapidly responsive personal
+                            website. I destined to make it as great as my
+                            alliteration skills.
+                        </p>
+                        <p>
+                            Oh, and all in three files. The project directory
+                            consisted of
+                            <a
+                                href="https://github.com/majorschwartz/majorschwartz.github.io/blob/main/index.html"
+                                target="_blank"
+                                >index.html</a
+                            >,
+                            <a
+                                href="https://github.com/majorschwartz/majorschwartz.github.io/blob/main/styles.css"
+                                target="_blank"
+                                >styles.css</a
+                            >, and
+                            <a
+                                href="https://github.com/majorschwartz/majorschwartz.github.io/blob/main/main.js"
+                                target="_blank"
+                                >main.js</a
+                            >. The three musketeers of web development.
+                        </p>
+                        <p>
+                            I barred myself from using any frameworks for the
+                            sake of personal coding improvement. And it paid
+                            off.
+                        </p>
+                        <p>
+                            Fifty-four commits later, I had built a custom JS
+                            animation handler, a breadth-first search transition
+                            algorithm for element fading, and pagination from
+                            scratch.
+                        </p>
+                        <p>
+                            Tech Stack: <em><b>HTML</b></em> for the page,
+                            <em><b>CSS</b></em> for styling, and
+                            <em><b>JavaScript</b></em> for functionality.
+                        </p>
+                        <p>
+                            Past Website Github:
+                            <a
+                                href="https://github.com/majorschwartz/majorschwartz.github.io"
+                                target="_blank"
+                                >Github</a
+                            >
+                        </p>
+                        <p>
+                            Past Website (live):
+                            <a href="https://majorschwartz.com/past" target="_blank"
+                                >Go To Website</a
+                            >
+                        </p>
+                    </details>
+                </section>
+            </main>
+            <footer>
+                This website uses only HTML and CSS. Because personal websites shouldn't be <a href="https://imgs.xkcd.com/comics/the_general_problem.png" target="_blank">overengineered</a>.
+            </footer>
         </div>
-
-        <main>
-            <div class="card">
-                <div class="card-item intro-card">
-                    <div class="intro-card-content">
-                        <div class="intro-header-section">
-                            <h2 class="intro-header">Major Schwartz</h2>
-                        </div>
-                        <div class="menu-section">
-                            <ul class="menu-list">
-                                <li
-                                    class="menu-item"
-                                    onclick="change_card('about-card')"
-                                >
-                                    About
-                                </li>
-                                <li class="menu-dot">&nbsp;</li>
-                                <li
-                                    class="menu-item"
-                                    onclick="change_card('exp-card')"
-                                >
-                                    Experience
-                                </li>
-                                <li class="menu-dot">&nbsp;</li>
-                                <li
-                                    class="menu-item"
-                                    onclick="change_card('contact-card')"
-                                >
-                                    Contact
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-item about-card hidden-card">
-                    <img
-                        src="files/about-portrait.png"
-                        class="about-portrait"
-                        alt="Major Schwartz Photo"
-                    />
-                    <div class="about-card-content">
-                        <div class="about-header-section">
-                            <h2 class="about-header">About Me</h2>
-                        </div>
-                        <div class="about-text-section">
-                            <div class="uni-name">
-                                University of Tennessee at Chattanooga
-                            </div>
-                            <div class="uni-context">Honors College</div>
-                            <div class="uni-context">Dean's Merit Scholar</div>
-                            <div class="uni-context">Data Science 3rd year</div>
-                        </div>
-                        <div
-                            class="like-link"
-                            onclick="change_card('like-card')"
-                        >
-                            Stuff I Like
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-item like-card hidden-card">
-                    <div class="like-card-content">
-                        <div class="like-header-section">
-                            <h2 class="like-header">Stuff I Like</h2>
-                        </div>
-                        <div class="like-quote-section">
-                            <h4 class="quote-header">Quotes</h4>
-                            <div class="quote-text">
-                                <div class="quote-item">
-                                    <div class="quote">
-                                        The people who are crazy enough to think
-                                        they can change the world are the ones
-                                        who do.
-                                        <span class="quote-attribution">
-                                            &ndash; Steve Jobs
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="quote-item">
-                                    <div class="quote">
-                                        Live life easy; do it the hard way.
-                                        <span class="quote-attribution">
-                                            &ndash; My Grandfather
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="quote-item">
-                                    <div class="quote">
-                                        If you tell the truth, you don't have to
-                                        remember anything.
-                                        <span class="quote-attribution">
-                                            &ndash; Mark Twain
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="like-book-section">
-                            <h4 class="book-header">Books</h4>
-                            <div class="book-row">
-                                <a
-                                    target="_blank"
-                                    href="https://www.amazon.com/How-Win-Friends-Influence-People/dp/0671027034"
-                                    ><img
-                                        src="files/books/how-to-win-friends.jpeg"
-                                        alt="How To Win Friends and Influence People"
-                                        class="book"
-                                /></a>
-                                <a
-                                    target="_blank"
-                                    href="https://www.amazon.com/Myth-Sisyphus-Vintage-International/dp/0525564454"
-                                    ><img
-                                        src="files/books/the-myth-of-sisyphus.jpeg"
-                                        alt="The Myth of Sisyphus"
-                                        class="book"
-                                /></a>
-                                <a
-                                    target="_blank"
-                                    href="https://www.amazon.com/Shoe-Dog-Memoir-Creator-NIKE/dp/1471146723"
-                                    ><img
-                                        src="files/books/shoe-dog.jpeg"
-                                        alt="Shoe Dog"
-                                        class="book"
-                                /></a>
-                                <a
-                                    target="_blank"
-                                    href="https://www.amazon.com/Exhalation-Stories-Ted-Chiang-ebook/dp/B07GD46PQZ"
-                                    ><img
-                                        src="files/books/exhalation.jpeg"
-                                        alt="Exhalation"
-                                        class="book"
-                                /></a>
-                                <a
-                                    target="_blank"
-                                    href="https://www.amazon.com/Mice-Men-John-Steinbeck-ebook/dp/B001BC2ZS6"
-                                    ><img
-                                        src="files/books/of-mice-and-men.jpeg"
-                                        alt="Of Mice and Men"
-                                        class="book"
-                                /></a>
-                            </div>
-                        </div>
-                        <div class="like-channel-section">
-                            <h4 class="channel-header">YouTube</h4>
-                            <div class="channels">
-                                <a
-                                    target="_blank"
-                                    href="https://www.youtube.com/@Veritasium"
-                                    ><div class="channel-item">
-                                        <span class="channel-name"
-                                            >Veritasium</span
-                                        >
-                                        <span class="channel-icon-wrap">
-                                            <img
-                                                src="files/channels/veritasium-icon.jpeg"
-                                                alt="Icon"
-                                                id="ve-icon"
-                                                class="channel-icon"
-                                            />
-                                        </span></div
-                                ></a>
-                                <a
-                                    target="_blank"
-                                    href="https://www.youtube.com/@TwoMinutePapers"
-                                    ><div class="channel-item">
-                                        <span class="channel-name">
-                                            Two Minute Papers
-                                        </span>
-                                        <span class="channel-icon-wrap">
-                                            <img
-                                                src="files/channels/two-minute-papers-icon.jpeg"
-                                                alt="Icon"
-                                                id="tmp-icon"
-                                                class="channel-icon"
-                                            />
-                                        </span></div
-                                ></a>
-                                <a
-                                    target="_blank"
-                                    href="https://www.youtube.com/@TomScottGo"
-                                    ><div class="channel-item">
-                                        <span class="channel-name"
-                                            >Tom Scott</span
-                                        >
-                                        <span class="channel-icon-wrap">
-                                            <img
-                                                src="files/channels/tom-scott-icon.jpeg"
-                                                alt="Icon"
-                                                id="ts-icon"
-                                                class="channel-icon"
-                                            />
-                                        </span></div
-                                ></a>
-                                <a
-                                    target="_blank"
-                                    href="https://www.youtube.com/@Fireship"
-                                    ><div class="channel-item">
-                                        <span class="channel-name"
-                                            >Fireship</span
-                                        >
-                                        <span class="channel-icon-wrap">
-                                            <img
-                                                src="files/channels/fireship-icon.jpeg"
-                                                alt="Icon"
-                                                id="fs-icon"
-                                                class="channel-icon"
-                                            />
-                                        </span></div
-                                ></a>
-                                <a
-                                    target="_blank"
-                                    href="https://www.youtube.com/@Vsauce"
-                                    ><div class="channel-item">
-                                        <span class="channel-name">Vsauce</span>
-                                        <span class="channel-icon-wrap">
-                                            <img
-                                                src="files/channels/vsauce-icon.jpeg"
-                                                alt="Icon"
-                                                id="vs-icon"
-                                                class="channel-icon"
-                                            />
-                                        </span></div
-                                ></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-item exp-card hidden-card">
-                    <div class="exp-card-content">
-                        <div class="exp-header-section">
-                            <h2 class="exp-header">Experience</h2>
-                        </div>
-                        <div class="timeline-section">
-                            <div class="timeline-bar"></div>
-                        </div>
-                        <div class="exp-timeline-wrapper">
-                            <div class="time-labels">
-                                <div class="year">2023</div>
-                                <div class="month"> </div>
-                                <div class="month"> </div>
-                                <div class="month"> </div>
-                                <div class="year">2024</div>
-                                <div class="month">Jan</div>
-                            </div>
-                            <div class="exp-items">
-                                <div class="exp-item">
-                                    <div class="item-main">
-                                        <span class="title">Web Editor</span
-                                        ><span class="location">, UTC</span>
-                                    </div>
-                                    <div class="item-date">
-                                        May 2022 &ndash; Dec 2023
-                                    </div>
-                                </div>
-                                <div class="exp-item">
-                                    <div class="item-main">
-                                        <span class="title"
-                                            >Research Assistant</span
-                                        ><span class="location">, UTC</span>
-                                    </div>
-                                    <div class="item-date">
-                                        April 2022 &ndash; April 2023
-                                    </div>
-                                </div>
-                                <div class="exp-item">
-                                    <div class="item-main">
-                                        <span class="title">SWE Intern</span
-                                        ><span class="location">, TVA</span>
-                                    </div>
-                                    <div class="item-date">
-                                        Jan 2024 &ndash; Present
-                                    </div>
-                                </div>
-                                <div class="cta">
-                                    <div class="text">Put me to work...</div>
-                                    <div
-                                        class="contact-link-text"
-                                        onclick="change_card('contact-card')"
-                                    >
-                                        Go to contact page
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="exp-image-content">
-                            <img
-                                class="exp-image"
-                                id="exp-research-paper"
-                                src="files/paper.jpeg"
-                                alt="Research Paper"
-                            />
-                            <img
-                                class="exp-image"
-                                id="exp-calendar"
-                                src="files/calendar.jpeg"
-                                alt="UTC Calendar"
-                            />
-                            <img
-                                class="exp-image"
-                                id="exp-webpage"
-                                src="files/webpage.jpeg"
-                                alt="UTC Webpage"
-                            />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-item contact-card hidden-card">
-                    <div class="contact-card-content">
-                        <div class="contact-header-section">
-                            <h2 class="contact-header">Contact</h2>
-                        </div>
-                        <div class="contact-text-section">
-                            <div class="contact-text">
-                                For all business inquiries, career
-                                opportunities, friendly chats, or birthday
-                                invitations, please contact:
-                            </div>
-                        </div>
-                        <div class="contact-email-section">
-                            <div class="contact-email-wrapper">
-                                <span class="copy-email">
-                                    <img
-                                        onclick="copy_email()"
-                                        id="copy-contact-email"
-                                        src="files/copy.png"
-                                        alt="Copy Email"
-                                    />
-                                </span>
-                                <span class="contact-email" value="me@majorschwartz.com">me@majorschwartz.com</span>
-                            </div>
-                        </div>
-                        <div class="copy-ani hidden">
-                            <div class="cursor-wrapper">
-                                <img
-                                    id="cursor"
-                                    src="files/cursors/default.png"
-                                />
-                                <img id="poof" src="files/cursors/poof.gif" />
-                            </div>
-                        </div>
-                        <div class="copy-interacts">
-                            <span class="keys zero-opacity">Copy</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bottom-menu">
-                <ul class="bottom-list">
-                    <li class="row-item" onclick="change_card('about-card')">
-                        About
-                    </li>
-                    <li class="menu-dot">&nbsp;</li>
-                    <li class="row-item" onclick="change_card('exp-card')">
-                        Experience
-                    </li>
-                    <li class="menu-dot">&nbsp;</li>
-                    <li class="row-item" onclick="change_card('contact-card')">
-                        Contact
-                    </li>
-                </ul>
-            </div>
-        </main>
     </body>
 </html>
