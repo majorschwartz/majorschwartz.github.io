@@ -89,6 +89,9 @@
         nav {
             font-size: 1.125rem;
         }
+        dd > dl {
+            margin: 0;
+        }
         footer {
             margin: 1.5rem 0 0.75rem 0;
             padding: 0.5rem;
@@ -160,7 +163,9 @@
                         </p>
                     </details>
                     <details>
-                        <summary>Certs, Libraries, and What I'm Learning Now</summary>
+                        <summary>
+                            Certs, Libraries, and What I'm Learning Now
+                        </summary>
                         <dl>
                             <dt>Certifications</dt>
                             <dd>
@@ -174,8 +179,21 @@
                             </dd>
                             <dt>Libraries</dt>
                             <dd>
-                                NumPy, Pandas, Scikit-learn, PyTorch,
-                                Matplotlib, BeautifulSoup
+                                <dl>
+                                    <dt><b>Python</b></dt>
+                                    <dd>
+                                        FastAPI, Flask, NumPy, Pandas,
+                                        Scikit-learn, PyTorch, Matplotlib,
+                                        BeautifulSoup
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt><b>JavaScript</b></dt>
+                                    <dd>
+                                        React, Svelte, Node.js, WebSockets,
+                                        Socket.io, Google OAuth
+                                    </dd>
+                                </dl>
                             </dd>
                         </dl>
                         <p>
@@ -185,12 +203,9 @@
                             potential with this emerging technology, and I'll
                             continue to build with it! Right now I'm focusing on
                             how to use LLMs for education. My current project is
-                            Quizable, and you can read more about it under
-                            the
-                            <a href="#projects"
-                                >Projects</a
-                            >
-                            section.
+                            Quizable, and you can read more about it under the
+                            <a href="#projects">Projects</a>
+                            section below.
                         </p>
                     </details>
                 </section>
@@ -281,7 +296,9 @@
                 <section id="projects">
                     <h2>Projects</h2>
                     <details>
-                        <summary>Quizable.ai - <em>Currently live!</em></summary>
+                        <summary>
+                            Quizable.ai - <em>Currently live!</em>
+                        </summary>
                         <p>
                             LLMs know a lot. They know so much that they can
                             generate text about nearly any topic. And as they
@@ -290,11 +307,11 @@
                             teachers.
                         </p>
                         <p>
-                            Quizable is a platform where people can enter
-                            the subject they'd like to learn about, and a
-                            roadmap of the subject is generated with topics and
-                            subtopics. Additionally, a quiz is provided at the
-                            end of each topic to test the user's knowledge.
+                            Quizable is a platform where people can enter the
+                            subject they'd like to learn about, and a roadmap of
+                            the subject is generated with topics and subtopics.
+                            Additionally, a quiz is provided at the end of each
+                            topic to test the user's knowledge.
                         </p>
                         <p>
                             Current Tech Stack: <em><b>FastAPI</b></em
@@ -307,7 +324,12 @@
                             >.
                         </p>
                         <p>
-                            <b>The application is currently live! Check it out at </b><a href="https://quizable.ai" target="_blank">quizable.ai</a>
+                            <b
+                                >The application is currently live! Check it out
+                                at </b
+                            ><a href="https://quizable.ai" target="_blank"
+                                >quizable.ai</a
+                            >
                         </p>
                     </details>
                     <details>
@@ -396,7 +418,9 @@
                         </p>
                         <p>
                             Past Website (live):
-                            <a href="https://majorschwartz.com/past" target="_blank"
+                            <a
+                                href="https://majorschwartz.com/past"
+                                target="_blank"
                                 >Go To Website</a
                             >
                         </p>
@@ -404,7 +428,13 @@
                 </section>
             </main>
             <footer>
-                This website only uses HTML and CSS. Because personal websites shouldn't be <a href="https://imgs.xkcd.com/comics/the_general_problem.png" target="_blank">overengineered</a>.
+                This website only uses HTML and CSS. Because personal websites
+                shouldn't be
+                <a
+                    href="https://imgs.xkcd.com/comics/the_general_problem.png"
+                    target="_blank"
+                    >overengineered</a
+                >.
             </footer>
         </div>
     </body>
