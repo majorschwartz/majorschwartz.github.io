@@ -381,7 +381,7 @@ function copy_email() {
     }, 300);
 
     setTimeout(function () {
-        document.querySelector("#cursor").src = "/files/cursors/ibeam.png";
+        document.querySelector("#cursor").src = "/past/files/cursors/ibeam.png";
 
         // for (let i = 0; i <= emailText.length; i++) {
         //     setTimeout(function() {
@@ -402,7 +402,7 @@ function copy_email() {
     }, 700);
 
     setTimeout(function () {
-        document.querySelector("#cursor").src = "/files/cursors/default.png";
+        document.querySelector("#cursor").src = "/past/files/cursors/default.png";
     }, 700 + emailText.length * 27);
 
     setTimeout(function () {
@@ -411,7 +411,7 @@ function copy_email() {
         cursorWrap.classList.add("click");
         setTimeout(function () {
             document.querySelector("#cursor").src =
-                "/files/cursors/pointer.png";
+                "/past/files/cursors/pointer.png";
         }, 600);
         setTimeout(function () {
             click_and_close();
@@ -469,7 +469,7 @@ function click_and_close() {
 
     setTimeout(function () {
         document.querySelector(".keys").classList.remove("pressed");
-        document.querySelector("#cursor").src = "/files/cursors/default.png";
+        document.querySelector("#cursor").src = "/past/files/cursors/default.png";
         copyAni.classList.remove("active");
     }, 800);
 
