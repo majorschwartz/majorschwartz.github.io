@@ -65,6 +65,9 @@ h2 {
 	font-size: 1.75rem;
 	margin: 1rem 0;
 }
+main > section:not(:first-child) > h2 {
+    margin-top: 2.5rem;
+}
 details {
 	margin: 1.75rem 0;
 }
