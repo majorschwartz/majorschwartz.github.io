@@ -22,6 +22,9 @@ nav {
 nav a {
 	word-wrap: none;
 }
+nav a:first-child {
+	margin-right: 1rem;
+}
 a {
 	color: #332c28;
 	text-decoration: underline;
